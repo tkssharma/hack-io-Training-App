@@ -9,7 +9,7 @@
     "watch-css": "nodemon -e scss -x \"npm run scss-compile\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "NODE_ENV=production webpack --config ./webpack.config.js  --hot --inline",
-    "start-local": "webpack-dev-server --config ./webpack.config.js  --hot --inline",
+    "start-local": "webpack-dev-server --config ./webpack.config.js  --hot --inline --progress",
     "start": "node server.js"
   },
   "author": "TarunSharma",
@@ -46,6 +46,7 @@
     "extract-text-webpack-plugin": "^0.8.2",
     "file-loader": "^0.10.1",
     "history": "4.2.0",
+    "html-webpack-plugin": "^2.30.1",
     "immutable": "3.8.1",
     "jest": "^19.0.2",
     "json-loader": "0.5.4",

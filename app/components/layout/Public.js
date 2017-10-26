@@ -11,7 +11,6 @@ let PublicPage = (props) => {
 		<div>
 			  <HeaderComp />
 					{props.children}
-					<FooterComp />
 		</div>
 	);
 

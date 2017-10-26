@@ -1,10 +1,10 @@
 
 var webpack = require('webpack');
 var path = require('path');
+var  HtmlWebpackPlugin = require('html-webpack-plugin');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var BUILD_DIR = path.resolve(__dirname, 'public/scripts');
 var APP_DIR = path.resolve(__dirname, 'app');
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var CompressionPlugin = require("compression-webpack-plugin");
 
 var config = {
@@ -21,14 +21,18 @@ var config = {
    ]},
    output: {
       path: BUILD_DIR,
-      filename: 'bundle.js',
-      publicPath: '/public/'
+      filename: 'bundle.js'
    },
    plugins: [
       new webpack.DefinePlugin({
          'process.env': {
             'NODE_ENV': JSON.stringify('production')
          }
+      }),
+       new HtmlWebpackPlugin({
+        template: __dirname + '/index.html',
+        filename: 'index.html',
+        inject: 'body'
       }),
       new webpack
       .optimize
