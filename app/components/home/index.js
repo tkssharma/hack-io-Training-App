@@ -1,12 +1,13 @@
-'use strict';
+import React, { Component } from 'react';
 
-import React from 'react';
+class SearchBar extends Component {
+  render() {
+    return (
+      <div>
 
-const Home = (props) => {
-  return (
-    <div>hello </div>
-  )
-
+      </div>
+    );
+  }
 }
 
-export default Home;
+export default SearchBar;

@@ -21,7 +21,7 @@ export default class CommonHeader extends React.Component {
        <button data-message="" className="js-open-submit-tutorial   visible-xs nav-btn pull-right btn cta-sec"><i className="ion-plus"></i> Submit</button>
        <div className="search-bar-toggle nav-icon-toggle visible-xs"><i className="ion-ios-search-strong"></i></div>
        <a className="navbar-brand" href="https://next.io">
-
+       <img class="hackr-logo-text-path hidden-xs" src="https://learn.playto.io/img-global/logo-200x200.png"/>
            </a>
       </div>
       <div className="navbar-search search-bar">
