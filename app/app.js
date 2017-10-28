@@ -3,7 +3,8 @@
 import React from 'react';
 import {render} from 'react-dom';
 import asyncComponent from './AsyncComponent'
-
+import '../public/css/style.css';
+import '../public/css/override.css'
 import {
 	Router,
 	Redirect,
@@ -26,6 +27,13 @@ const history = syncHistoryWithStore(browserHistory, store);
 import * as Action from 'app/redux/actions';
 
 // ------------------Login pages-------------------//
+import RegisterPage from 'app/components/auth/Register';
+import LoginPage from 'app/components/auth/Login';
+import LogoutPage from 'app/components/auth/Logout';
+import ResetPasswordPage from 'app/components/auth/ResetPassword';
+import ValidateTokenPage from 'app/components/auth/ValidateToken';
+import AuthLayout from 'app/components/layout/Auth';
+
 // ------------------Application Pages-------------//
 import AppLayout from 'app/components/layout/Default';
 import PublicLayout from 'app/components/layout/Public';
@@ -39,6 +47,20 @@ render((
 
 			<Route path="/" component={PublicLayout}>
 				<IndexRoute component={PublicIndexPage}/>
+			</Route>
+
+			<Route path="auth" component={AuthLayout}>
+				<Route
+					path="register"
+					component={RegisterPage}
+					onEnter={AuthMiddleware.notLoggedIn}/>
+				<Route path="login" component={LoginPage} onEnter={AuthMiddleware.notLoggedIn}/>
+				<Route path="logout" component={LogoutPage}/>
+				<Route path="validate-token" component={ValidateTokenPage}/>
+				<Route
+					path="reset-password"
+					component={ResetPasswordPage}
+					onEnter={AuthMiddleware.notLoggedIn}/>
 			</Route>
 
 		</Router>

@@ -10,11 +10,11 @@ import Util from '../../utils/helper/utilHelper';
 const mapStateToProps = (state, ownProps) => {
 	return {
 		status: state
-		.auth
-		.get('status'),
+			.auth
+			.get('status'),
 		login: state
-		.auth
-		.get('login')
+			.auth
+			.get('login')
 	}
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -29,11 +29,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 let LoginPage = (props) => {
 
 	let user_email = props
-	.login
-	.get('email');
+		.login
+		.get('email');
 	let user_password = props
-	.login
-	.get('password');
+		.login
+		.get('password');
 
 	let handleSubmit = (event) => {
 		event.preventDefault();
@@ -64,63 +64,63 @@ let LoginPage = (props) => {
 	}
 
 	const ui_logo = (
-		<div className="authlogo"></div>
+		<div className="logo"><a href="/"><img src="http://pluspng.com/img-png/coder-png-source-code-icon-1600.png" alt=""/></a></div>
 	);
 
 	const ui_links = (
 		<div className="social">
-		<a href={config.social.facebook} className="button block facebook">
-		<i className="fa fa-facebook-official" aria-hidden="true"></i>
-		Login with Facebook</a>
-		<a href={config.social.google} className="button block google">
-		<i className="fa fa-google" aria-hidden="true"></i>
-		Login with Google</a>
-		<a href={config.social.twitter} className="button block twitter">
-		<i className="fa fa-twitter" aria-hidden="true"></i>
-		Login with Twitter</a>
-		<a href={config.social.instagram} className="button block instagram">
-		<i className="fa fa-instagram" aria-hidden="true"></i>
-		Login with Instagram</a>
+			<a href={config.social.facebook} className="button block facebook">
+				<i className="fa fa-facebook-official" aria-hidden="true"></i>
+				Login with Facebook</a>
+			<a href={config.social.google} className="button block google">
+				<i className="fa fa-google" aria-hidden="true"></i>
+				Login with Google</a>
+			<a href={config.social.twitter} className="button block twitter">
+				<i className="fa fa-twitter" aria-hidden="true"></i>
+				Login with Twitter</a>
+			<a href={config.social.instagram} className="button block instagram">
+				<i className="fa fa-instagram" aria-hidden="true"></i>
+				Login with Instagram</a>
 		</div>
 	);
 
 	const ui_form = (
 		<div className="content">
 
-		<form onSubmit={handleSubmit}>
-		<h2>Login to Members Area.</h2>
+			<form onSubmit={handleSubmit}>
+				<h2>Login to Members Area.</h2>
 
-		{props
-			.login
-			.get('error') && <Alert message="Please enter valid email and password." type="error" showIcon/>
-		}
+				{props
+					.login
+					.get('error') && <Alert message="Please enter valid email and password." type="error" showIcon/>
+}
 
-		<div className="input">
-		<input
-		type="text"
-		placeholder="email address"
-		autoFocus
-		defaultValue={user_email}
-		onChange={e => {
-			handleInputChange(e, 'email')
-		}}/>
-		</div>
+				<div className="input">
+					<input
+						type="text"
+						placeholder="email address"
+						autoFocus
+						defaultValue={user_email}
+						onChange={e => {
+						handleInputChange(e, 'email')
+					}}/>
+				</div>
 
-		<div className="input">
-		<input
-		type="password"
-		placeholder="password"
-		defaultValue={user_password}
-		onChange={e => {
-			handleInputChange(e, 'password')
-		}}/>
-		</div>
+				<div className="input">
+					<input
+						type="password"
+						placeholder="password"
+						defaultValue={user_password}
+						onChange={e => {
+						handleInputChange(e, 'password')
+					}}/>
+				</div>
 
-		<div className="form-footer">
-		<button type="submit" className="ant-btn ant-btn-primary">Login Now</button>
-		<Link className="label-marker" to="/auth/reset-password">Reset password</Link>
-		</div>
-		</form>
+				<div className="form-footer">
+					<button type="submit" className="ant-btn ant-btn-primary">Login Now</button>
+					<Link className="label-marker" to="/auth/reset-password">Reset password</Link>
+				</div>
+			</form>
 
 		</div>
 	);
@@ -128,32 +128,30 @@ let LoginPage = (props) => {
 	return (
 		<div className="flex column">
 
-		{ui_logo}
+			{ui_logo}
 
-		<Spin
-		spinning={props
-			.login
-			.get('submit')}
-			size="large">
-			<div className="content-container">
+			<Spin spinning={props
+				.login
+				.get('submit')} size="large">
+				<div className="content-container">
 
-			<div className="flex flex--jc-sa flex--align-center">
-			{ui_form}
-			{ui_links}
-			</div>
+					<div className="flex flex--jc-sa flex--align-center">
+						{ui_form}
+						{ui_links}
+					</div>
 
-			<div className="center m-t-20">
-			<Link to="/auth/register" className="button default centered extra-padding">Not yet a member? Register Now</Link>
-			</div>
+					<div className="center m-t-20">
+						<Link to="/auth/register" className="button default centered extra-padding">Not yet a member? Register Now</Link>
+					</div>
 
-			</div>
+				</div>
 			</Spin>
 
-			</div>
-		)
+		</div>
+	)
 
-	}
+}
 
-	const ConnectLoginPage = connect(mapStateToProps, mapDispatchToProps)(LoginPage)
+const ConnectLoginPage = connect(mapStateToProps, mapDispatchToProps)(LoginPage)
 
-	export default ConnectLoginPage;
+export default ConnectLoginPage;

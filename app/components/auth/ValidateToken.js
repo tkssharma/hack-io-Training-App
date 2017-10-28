@@ -50,7 +50,7 @@ let ValidateTokenPage = (props) => {
 	}
 
 	const ui_logo = (
-		<div className="authlogo"></div>
+		<div className="logo"><a href="/"><img src="http://pluspng.com/img-png/coder-png-source-code-icon-1600.png" alt=""/></a></div>
 	);
 
 	const ui_no_access_token = (
