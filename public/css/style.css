@@ -4364,7 +4364,6 @@ select[multiple].input-group-sm>.form-control,select[multiple].input-group-sm>.i
 .navbar {
     position: relative;
     min-height: 50px;
-    margin-bottom: 20px;
     border: 1px solid transparent
 }
 
@@ -4451,7 +4450,6 @@ select[multiple].input-group-sm>.form-control,select[multiple].input-group-sm>.i
 }
 
 .navbar-fixed-bottom,.navbar-fixed-top {
-    position: fixed;
     right: 0;
     left: 0;
     z-index: 1030
@@ -10331,7 +10329,7 @@ input[type=date],input[type=email],input[type=number],input[type=password],input
 }
 
 .navbar-brand img {
-    height: 30px;
+    height: 50px;
     width: auto
 }
 
@@ -12022,14 +12020,9 @@ footer .social-links li a i {
     opacity: 1!important
 }
 
-.home--hero-header {
-    padding: 20px 0
-}
-
 .home--hero-header .center-logo {
     display: block;
     text-align: center;
-    margin-top: 45px;
     margin-bottom: 25px
 }
 
@@ -12039,7 +12032,6 @@ footer .social-links li a i {
 
 .home--hero-header .center-logo a img {
     width: auto;
-    height: 50px
 }
 
 .home--hero-header .center-logo a:hover {
@@ -12065,7 +12057,7 @@ footer .social-links li a i {
     font-size: 26px;
     font-weight: 500;
     line-height: 1.2;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     text-align: center
 }
 

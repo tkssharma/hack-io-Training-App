@@ -1000,11 +1000,24 @@ div.centered {
     letter-spacing: -1px;
     font-weight: 500;
 }
-
+.home--hero-header .center-logo a img {
+    width: auto;
+    max-height: 100px !important;
+    max-width: 200px !important;
+}
 .auth-container {
     background: #CCC;
     height: 100%;
     background-size: cover;
+}
+.page-wrapper {
+    background: url("../img/bg/06.jpg") no-repeat center center;
+    background-size: cover;
+}
+.home-wrapper {
+    background-color: rgba(0,0,0,.48);
+    min-height: 658px;
+    color: #ffffff;
 }
 
 .auth-container.default {

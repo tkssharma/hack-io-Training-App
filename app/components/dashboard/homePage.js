@@ -31,6 +31,6 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-	//fetchProfile: () => dispatch(Action.fetchProfile()),
+	fetchProfile: () => dispatch(Action.fetchProfile()),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(AdminHomeComponent);

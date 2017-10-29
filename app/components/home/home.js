@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class SearchBar extends Component {
+class Home extends Component {
  render() {
   return (
    <div className="home--hero-header">
@@ -9,10 +9,12 @@ class SearchBar extends Component {
           <div className="col-xs-12 text-center hero-header-container">
             <div className="center-logo">
               <a href="https://next.io">
-                <img src="https://learn.playto.io/img-global/logo-200x200.png"/>
+                <img src="https://s3.amazonaws.com/codementor_content/2016-Jun/code_fellows.png"/>
               </a>
             </div>
             <h1 className="hero-header">Find the Best programming Courses &amp; Tutorials</h1>
+            <h1 className="hero-header">Search Best programming tutorials</h1>
+
             <div className="search-bar">
               <div className="form-holder">
                 <div id="navbarSearch">
@@ -31,4 +33,4 @@ class SearchBar extends Component {
  }
 }
 
-export default SearchBar;
+export default Home;
