@@ -1831,3 +1831,9 @@ a:focus {
 input, label, select, textarea {
     cursor: auto !important;
 }
+body.homepage .page--section {
+    padding: 40px 0 20px;
+}
+.home--hero-header {
+    padding: 20px 0;
+}
