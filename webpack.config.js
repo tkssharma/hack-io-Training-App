@@ -8,7 +8,7 @@ var APP_DIR = path.resolve(__dirname, 'app');
 var CompressionPlugin = require("compression-webpack-plugin");
 
 var config = {
-    devtool: 'cheap-module-source-map',
+    devtool: 'eval',
      entry: {
    app: [path.join(__dirname, 'app/app.js')],
    vendor: [
@@ -26,7 +26,7 @@ var config = {
    plugins: [
       new webpack.DefinePlugin({
          'process.env': {
-            'NODE_ENV': JSON.stringify('production')
+            'NODE_ENV': JSON.stringify('development')
          }
       }),
        new HtmlWebpackPlugin({
@@ -60,13 +60,13 @@ var config = {
       }), //minify everything
       new webpack.optimize.DedupePlugin(), //dedupe similar code
       new webpack.NoErrorsPlugin(),
-      new CompressionPlugin({
+      /*new CompressionPlugin({
             asset: "[path].gz[query]",
             algorithm: "gzip",
             test: /\.js$|\.css$|\.html$/,
             threshold: 10240,
             minRatio: 0
-      }),
+      }), */
       //new ExtractTextPlugin("style.bundle.css"),
 
       new webpack

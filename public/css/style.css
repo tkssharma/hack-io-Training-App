@@ -10297,7 +10297,7 @@ input[type=date],input[type=email],input[type=number],input[type=password],input
 
 @media (max-width: 767px) {
     .navbar-holder .cta-sec {
-        color:#494f9c;
+        color:#d03427;
         background-color: #fff;
         font-weight: 500
     }
@@ -10640,7 +10640,7 @@ input[type=date],input[type=email],input[type=number],input[type=password],input
 }
 
 .navbar-toggle .icon-bar {
-    background: #494f9c;
+    background: rgb(208, 53, 40);
     transition: all .2s linear
 }
 

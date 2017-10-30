@@ -41,7 +41,7 @@ let LoginPage = (props) => {
 
 		let errorHandler = (message, description) => {
 			setTimeout(() => {
-				notification.error({message: message, description: description});
+				//notification.error({message: message, description: description});
 				props.authInvalidateLoginForm(true);
 				props.authSubmitLoginForm(false);
 			}, 50);

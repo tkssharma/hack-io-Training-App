@@ -33,7 +33,8 @@ import LogoutPage from 'app/components/auth/Logout';
 import ResetPasswordPage from 'app/components/auth/ResetPassword';
 import ValidateTokenPage from 'app/components/auth/ValidateToken';
 import AuthLayout from 'app/components/layout/Auth';
-
+//-----------------------dashboard pages -------------//
+import DashBoardComponent from 'app/components/dashboard/dashboardPage';
 // ------------------Application Pages-------------//
 import AppLayout from 'app/components/layout/Default';
 import PublicLayout from 'app/components/layout/Public';
@@ -61,6 +62,14 @@ render((
 					path="reset-password"
 					component={ResetPasswordPage}
 					onEnter={AuthMiddleware.notLoggedIn}/>
+			</Route>
+
+			<Route
+				path="user"
+				component={PublicLayout}
+				onEnter={AuthMiddleware.authenticatedUsersOnly}>
+				<IndexRoute component={DashBoardComponent}/>
+				<Route path="dashboard" component={DashBoardComponent}/>
 			</Route>
 
 		</Router>

@@ -20,30 +20,6 @@ class VideoList extends Component {
          <p className="js-topic">React Development</p>
         </a>
        </div>
-       <div className="grid-col data-grid grid-col-1 topic-grid">
-        <a
-         href="https://next.io/tutorials/learn-android-development"
-         data-alias=""
-         className="topic-grid-item js-topic-grid-item">
-         <img
-          className="topic-thumbnail"
-          src="https://next.io/tutorials/learn-android-development/svg/android-development_logo"
-          alt=""/>
-         <p className="js-topic">Ionic Development</p>
-        </a>
-       </div>\<div className="grid-col data-grid grid-col-1 topic-grid">
-        <a
-         href="https://next.io/tutorials/learn-android-development"
-         data-alias=""
-         className="topic-grid-item js-topic-grid-item">
-         <img
-          className="topic-thumbnail"
-          src="https://next.io/tutorials/learn-android-development/svg/android-development_logo"
-          alt=""/>
-         <p className="js-topic">Angular Development</p>
-        </a>
-       </div>
-
       </div>
 
       <div id="no_topics_found" className="col-md-12 text-center hidden">

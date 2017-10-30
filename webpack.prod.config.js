@@ -6,6 +6,7 @@ var BUILD_DIR = path.resolve(__dirname, 'public/scripts');
 var APP_DIR = path.resolve(__dirname, 'app');
 
 var config = {
+    devtool: 'cheap-module-source-map',
      entry: {
    app: [path.join(__dirname, 'app/app.js')],
    vendor: [
@@ -24,7 +25,7 @@ var config = {
    plugins: [
       new webpack.DefinePlugin({
          'process.env': {
-            'NODE_ENV': JSON.stringify('production')
+            'NODE_ENV': JSON.stringify('development')
          }
       }),
       new webpack

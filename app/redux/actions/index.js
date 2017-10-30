@@ -18,7 +18,8 @@ import {
 	AUTH_SUBMIT_RESET_PASSWORD_FORM,
 	AUTH_UPDATE_RESET_PASSWORD_STATUS_FIELD,
 	AUTH_INVALIDATE_RESET_PASSWORD_FORM,
-
+	FETCH_PROFILE_SUCCESS,
+	TOKEN_NOT_FOUND,
 	APP_CONFIG_TOGGLE_ASIDE,
 
 	USER_UPDATE_PROFILE,
@@ -56,10 +57,10 @@ import {
 import axios from 'axios';
 import * as API from 'app/api';
 import {message, notification} from 'antd';
-import {browserHistory} from 'react-router';
 import Auth from 'app/redux/api/Auth';
 import StorageAPI from 'app/redux/api/Storage';
 import jwt from 'jsonwebtoken';
+import {hashHistory} from 'react-router';
 
 import routes from 'app/redux/constants/Routes';
 
@@ -99,6 +100,38 @@ export function getAllMenu() {
 export function reduxResetState() {
 	return {type: REDUX_RESET_STATE}
 }
+
+export function fetchProfileSuccess(data) {
+	return {
+		type: 'FETCH_PROFILE_SUCCESS',
+		payload: {
+			data: data
+		}
+	}
+}
+export function fetchProfile() {
+	let token = 	Auth.getAuthToken()
+
+	if (token === undefined) {
+		return {type: 'TOKEN_NOT_FOUND'};
+	}
+	else{
+					API.setAuthToken(token);
+	}
+	return dispatch => {
+		return axios
+			.get(API.url('userfetch'))
+			.then((response) => {
+				let json = response.data;
+				dispatch(fetchProfileSuccess(json));
+			})
+			.catch((error) => {
+				// dispatch(AdminLoginfailure(error)); notification.warning({message: 'Error
+				// Occoured', description: error});
+			});
+	}
+}
+
 /*
 Auth actions
 */
@@ -200,11 +233,8 @@ export function authServerLoginUser(data) {
 				Auth.setAccessToken(json.token);
 				API.setAuthToken(json.token);
 				dispatch(authUpdateUserData(jwt.decode(json.token)));
-				if (sessionStorage.redirect_after_login) {
-					browserHistory.push(sessionStorage.redirect_after_login);
-				} else {
-					browserHistory.push(routes.user_dashboard);
-				}
+    //router.push('/user/dashboard')
+				hashHistory.push(routes.user_dashboard);
 			}
 
 		}).catch((error) => {

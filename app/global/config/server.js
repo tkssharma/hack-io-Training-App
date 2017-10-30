@@ -7,6 +7,7 @@ export default {
 	login: 'auth/login',
 	validate_auth: 'auth/validate',
 	reset_password: 'auth/reset-password',
+	userfetch : 'user/fetch',
 	users: 'users',
 	update_user_details: 'users/update',
 	user_make_trainer: 'users/make-trainer',

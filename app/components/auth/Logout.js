@@ -35,10 +35,8 @@
 			}, 20 );
 		}
 
-			const ui_logo = (
-			<div className="authlogo">
-			
-				</div>
+		const ui_logo = (
+			<div className="logo"><a href="/"><img src="https://s3.amazonaws.com/codementor_content/2016-Jun/code_fellows.png" alt=""/></a></div>
 		);
 
 		const ui_message_logout = (
