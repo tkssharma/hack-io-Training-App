@@ -42,14 +42,6 @@ class ProfilePage extends Component {
             <div className="repo-title">
              <span className="txt">Badge Tally
               <a
-               href="javascript:void(0);"
-               tabindex="0"
-               data-toggle="popover"
-               data-trigger="focus"
-               data-html="true"
-               data-placement="left"
-               data-content="Badges are awarded when you achieve a milestone. <a href='https://hackr.io/help?section=badges'>Tell me more about badges.</a>"
-               data-original-title=""
                title="">
                <i className="fa fa-info-circle"></i>
               </a>

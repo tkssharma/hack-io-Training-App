@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import * as Action from 'app/redux/actions';
 import Helper from 'app/global/helper';
 import { Menu, Dropdown, Button, Icon } from 'antd';
+import UserRemoteSelect from '../dashboard/select';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -112,7 +113,8 @@ class CommonHeader extends React.Component {
                 <div className="form-holder">
                   <div id="navbarSearch"></div>
                   <i className="icon ion-ios-search-strong"></i>
-                  <input type="text" className="form-control navbar-search-input nav-input js-filter-topics" placeholder=" Search for the language you want to learn: Python, Javascript, ... "/>
+                  <UserRemoteSelect />
+
                 </div>
               </form>
             </div>

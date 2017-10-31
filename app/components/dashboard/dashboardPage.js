@@ -10,6 +10,7 @@ import * as Action from 'app/redux/actions';
 import Helper from 'app/global/helper';
 import VideoList from '../home/VideoList';
 import Searchbar from '../home/Searchbar';
+import UserRemoteSelect from './select';
 
 const mapStateToProps = (state, ownProps) => {
   return {
