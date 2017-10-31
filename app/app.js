@@ -25,7 +25,6 @@ import * as ScriptMiddleware from 'app/utils/middlewares/Script';
 const history = syncHistoryWithStore(browserHistory, store);
 
 import * as Action from 'app/redux/actions';
-
 // ------------------Login pages-------------------//
 import RegisterPage from 'app/components/auth/Register';
 import LoginPage from 'app/components/auth/Login';
@@ -34,8 +33,11 @@ import ResetPasswordPage from 'app/components/auth/ResetPassword';
 import ValidateTokenPage from 'app/components/auth/ValidateToken';
 import AuthLayout from 'app/components/layout/Auth';
 //-----------------------dashboard pages -------------//
-import DashBoardComponent from 'app/components/dashboard/dashboardPage';
+import DashBoardComponent from 'app/components/dashboard/DashboardPage';
+import ProfileComponent from 'app/components/dashboard/ProfilePage'
 // ------------------Application Pages-------------//
+import LearningComponent from 'app/components/learning/LearningPage'
+//------------------learning-------------------//
 import AppLayout from 'app/components/layout/Default';
 import PublicLayout from 'app/components/layout/Public';
 import PublicIndexPage from 'app/components/home/index';
@@ -70,6 +72,15 @@ render((
 				onEnter={AuthMiddleware.authenticatedUsersOnly}>
 				<IndexRoute component={DashBoardComponent}/>
 				<Route path="dashboard" component={DashBoardComponent}/>
+				<Route path="profile" component={ProfileComponent}/>
+			</Route>
+
+			<Route
+				path="learning"
+				component={PublicLayout}
+				onEnter={AuthMiddleware.authenticatedUsersOnly}>
+				<IndexRoute component={LearningComponent}/>
+				<Route path="technology" component={LearningComponent}/>
 			</Route>
 
 		</Router>

@@ -4,6 +4,7 @@ import {Link} from 'react-router'
 import {connect} from 'react-redux';
 import * as Action from 'app/redux/actions';
 import Helper from 'app/global/helper';
+import { Menu, Dropdown, Button, Icon } from 'antd';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -18,6 +19,19 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   //appConfigToggleAside: () => dispatch( Action.appConfigToggleAside() )
 });
+const menu = (
+  <Menu>
+    <Menu.Item>
+      <Link to="user/dashboard" rel="noopener noreferrer" >Dashboard</Link>
+    </Menu.Item>
+    <Menu.Item>
+    <Link to="user/profile" rel="noopener noreferrer" >Profile</Link>
+    </Menu.Item>
+    <Menu.Item>
+    <Link to="learning/technology" rel="noopener noreferrer" >My Learnings</Link>
+    </Menu.Item>
+  </Menu>
+);
 
 class CommonHeader extends React.Component {
   constructor(props) {
@@ -30,19 +44,23 @@ class CommonHeader extends React.Component {
       <div className="navbar-collapse collapse hidden-xs" id="navbarCollapse">
         <ul className="nav navbar-nav">
           <li className="cta-link cta-link-border">
-            <a href="#" className="js-open-submit-tutorial  " data-message="">
-              <i className="ion-plus"></i> Submit a Tutorial</a>
-            <Link to="/auth/logout" className="js-open-submit-tutorial  " data-message="">
-              Logout</Link>
-          </li>
-          <li className="cta-link cta-link-border">
             <Link to="/user/dashboard" className="js-open-submit-tutorial  " data-message="">
-           { this
-            .props
-            .user
-            .get('name')} </Link>
+              <i className="ion-plus"></i> Submit a Tutorial</Link>
 
           </li>
+          <li className="cta-link cta-link-border">
+            <Link to="/auth/logout" className="js-open-submit-tutorial  " data-message="">
+            <i className="ion-user"></i> Logout</Link>
+          </li>
+          <li className="cta-link cta-link-border">
+          <Dropdown overlay={menu} placement="bottomLeft">
+          <Button type="primary" size="large"><Icon type="user-add" /> { this
+            .props
+            .user
+            .get('name')} </Button>
+          </Dropdown>
+          </li>
+
         </ul>
       </div>
     );

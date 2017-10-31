@@ -30,6 +30,21 @@ body {
  * Typography
  */
 
+ input, label, select, textarea {
+    cursor: auto !important;
+}
+.page--section {
+    padding: 40px 0 20px;
+}
+.home--hero-header {
+    padding: 20px 0;
+}
+.dashboard-wrapper{
+    min-height: 650px;
+}
+.learning-wrapper{
+    min-height: 750px;
+}
 #root,
 div[data-reactroot] {
     height: 100%;
@@ -1828,12 +1843,29 @@ a:focus {
 #modalSubmitTutorial .select2-container--default .select2-selection--multiple .select2-selection__choice .select2-selection__choice__remove {
     color: #3c7dc0!important
 }
-input, label, select, textarea {
-    cursor: auto !important;
+
+.ant-btn-primary:hover, .ant-btn-primary:focus {
+    color: #fff;
+    background-color: #d03528;
+    border-color: #d03528;
 }
-body.homepage .page--section {
-    padding: 40px 0 20px;
+
+.ant-btn:hover, .ant-btn:focus, .ant-btn:active, .ant-btn.active {
+    background: #d03528;
 }
-.home--hero-header {
-    padding: 20px 0;
+.ant-btn:hover, .ant-btn:focus {
+    color: #ffffff;
+    background-color: #d03528;
+    border-color: #d03528;
+}
+button:active, button:focus, button:hover {
+    outline: 0!important;
+}
+button, html [type="button"], [type="reset"], [type="submit"] {
+    -webkit-appearance: button;
+}
+.ant-btn-primary {
+    color: #fff;
+    background-color: #d03528;
+    border-color: #d03528;
 }

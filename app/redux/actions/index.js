@@ -31,27 +31,10 @@ import {
 	UI_MODALS_UPDATE_FIELD,
 	UI_LOADED_UPDATE_FIELD,
 
-	TRAINER_CREATE_TRAINING_MANY,
-	TRAINER_CREATE_TRAINING,
-	TRAINER_UPDATE_TRAINING,
-	TRAINER_DELETE_TRAINING_FIELD,
-
-	TRAINER_UPDATE_TRAINING_SECTION,
-	TRAINER_CREATE_TRAINING_ACTION,
-	TRAINER_UPDATE_TRAINING_ACTION,
-	TRAINER_CREATE_TRAINING_ACTION_MANY,
-
-	TRAINER_CREATE_WEBINAR_MANY,
-	TRAINER_CREATE_WEBINAR,
-	TRAINER_UPDATE_WEBINAR,
-
 	USER_CREATE_REGISTRATION_MANY,
 	USER_CREATE_REGISTRATION,
 	USER_UPDATE_REGISTRATION_GUEST_DATA,
 	USER_UPDATE_REGISTRATION_FIELD,
-	ADMIN_GET_ALL_MENU,
-	ADMIN_GET_ALL_MENU_SUCCESS,
-	ADMIN_UPDATE_NAVPATH
 } from 'app/redux/constants';
 
 import axios from 'axios';
@@ -63,39 +46,6 @@ import jwt from 'jsonwebtoken';
 import {hashHistory} from 'react-router';
 
 import routes from 'app/redux/constants/Routes';
-
-export function updateNavPath(path, key) {
-	return {
-		type: ADMIN_UPDATE_NAVPATH,
-		payload: {
-			data: path,
-			key: key
-		}
-	}
-}
-
-export function getAllMenuSuccess(data){
-	return {
-		type: ADMIN_GET_ALL_MENU_SUCCESS,
-		payload: {
-			data: data
-		}
-	}
-}
-
-export function getAllMenu() {
-
-	return dispatch => {
-
-		return axios.get(API.url('adminMenu')).then((response) => {
-			let json = response.data;
-			dispatch(getAllMenuSuccess(json));
-		}).catch((error) => {
-			dispatch(getAllMenuSuccess({}));
-			notification.warning({message: 'Error Occoured', description: error});
-		});
-	}
-}
 
 export function reduxResetState() {
 	return {type: REDUX_RESET_STATE}

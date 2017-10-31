@@ -9,6 +9,8 @@ import CommonFooter from '../../components/Footer';
 import * as Action from 'app/redux/actions';
 import Helper from 'app/global/helper';
 import VideoList from '../home/VideoList';
+import Searchbar from '../home/Searchbar';
+
 const mapStateToProps = (state, ownProps) => {
   return {
     user: state
@@ -32,7 +34,7 @@ class DashBoardComponent extends React.Component {
     const {user} = this.props;
 
     return (
-      <div>
+      <div className="dashboard-wrapper">
         <div className="home--hero-header">
           <div className="container">
             <div className="row">
@@ -44,17 +46,7 @@ class DashBoardComponent extends React.Component {
                   </a>
                 </div>
                 <h1 className="hero-header">Search Best programming tutorials</h1>
-                <div className="search-bar">
-                  <div className="form-holder">
-                    <div id="navbarSearch">
-                      <input
-                        className="form-control navbar-search-input nav-input js-filter-topics"
-                        type="text"
-                        placeholder=" Search for the language you want to learn: Python, Javascript, ... "/>
-                    </div>
-                    <i className="icon ion-ios-search-strong"></i>
-                  </div>
-                </div>
+                 <Searchbar />
               </div>
               <div className="clearfix"></div>
             </div>

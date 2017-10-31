@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import routes from 'app/redux/constants/Routes';
+import Searchbar from './Searchbar';
 
 class Home extends Component {
 
@@ -23,19 +24,7 @@ class Home extends Component {
               </div>
               <h1 className="hero-header">Find the Best programming Courses &amp; Tutorials</h1>
               <h1 className="hero-header">Search Best programming tutorials</h1>
-
-              <div className="search-bar">
-                <div className="form-holder">
-                  <div id="navbarSearch">
-                    <input
-                      className="form-control navbar-search-input nav-input js-filter-topics"
-                      type="text"
-                      placeholder=" Search for the language you want to learn: Python, Javascript, ... "/>
-                  </div>
-                  <i className="icon ion-ios-search-strong"></i>
-                </div>
-              </div>
-
+               <Searchbar />
             </div>
             <div className="clearfix"></div>
           </div>

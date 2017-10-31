@@ -8,7 +8,6 @@ import auth from './Auth';
 import user from './User';
 import ui from './UI'
 import app from './App';
-import menu from './Menu';
 import {
     routerReducer
 } from 'react-router-redux';
@@ -16,7 +15,6 @@ import {
 const GenNextApp = combineReducers({
     auth,
     user,
-    menu,
     ui,
     app,
     routing: routerReducer,

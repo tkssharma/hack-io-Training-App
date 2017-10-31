@@ -10031,7 +10031,7 @@ input[type=date],input[type=email],input[type=number],input[type=password],input
 .flex-container .main-content.border {
     border-radius: 4px;
     border: 1px solid #eee;
-    padding: 0;
+    padding: 10px;
     margin-right: 10px
 }
 
@@ -10564,7 +10564,7 @@ input[type=date],input[type=email],input[type=number],input[type=password],input
 
 .navbar-collapse .navbar-nav li.cta-link a {
     color: #494f9c;
-    padding: 10px 16px;
+    padding: 8px 16px;
     margin-right: 5px;
     border-radius: 4px;
     transition: all .2s linear
@@ -12424,6 +12424,61 @@ footer .social-links li a i {
         text-align:center
     }
 }
+.page--section .page--section-header .page--section-subheading {
+    font-size: 16px;
+    line-height: 1.2;
+    margin-top: 5px;
+    color: #525252;
+}
+
+.tutorial--tut-title .page--section-subheading {
+    margin-bottom: 0;
+    text-align: left;
+    font-weight: 400;
+}
+.share-hackr .share-btn.no-count .txt {
+    padding: 3px 7px 3px 2px;
+}
+
+.share-hackr .share-btn .icon {
+    padding: 3px 8px;
+    transform: scale(1.5);
+}
+.share-hackr .share-btn:first-child {
+    margin-left: 0;
+}
+.share-hackr .share-linkedin {
+    border-color: #0077b5;
+    background: #0077b5;
+    color: #fff;
+}
+.share-hackr {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 15px;
+}
+.share-hackr .share-facebook {
+    border-color: #3b5998;
+    background: #3b5998;
+    color: #fff;
+}
+.share-hackr .share-btn {
+    display: flex;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    margin: 0 6px;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all .1s linear;
+    padding: 3px 7px;
+    margin-bottom: 10px;
+}
+.share-hackr .share-twitter {
+    border-color: #1da1f2;
+    background: #1da1f2;
+    color: #fff;
+}
 
 .tutorial--tut-title .tut-icon {
     min-width: 100px;
@@ -12434,6 +12489,9 @@ footer .social-links li a i {
     border: none;
     vertical-align: middle;
     margin-right: 20px
+}
+.tutorial--tut-title .tut-section-heading .category-header-wrapper-mobile .category-header {
+    display: flex;
 }
 
 @media (max-width: 767px) {
