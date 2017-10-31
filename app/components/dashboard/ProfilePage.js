@@ -4,7 +4,6 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {Tabs} from 'antd';
 const TabPane = Tabs.TabPane;
-
 class ProfilePage extends Component {
  constructor(props) {
   super(props);
@@ -76,6 +75,7 @@ class ProfilePage extends Component {
            <TabPane tab="Tab 2" key="2">Content of Tab Pane 2</TabPane>
            <TabPane tab="Tab 3" key="3">Content of Tab Pane 3</TabPane>
           </Tabs>
+
          </div>
 
          <div className="sidebar-content profile-sidebar col-sm-4">
