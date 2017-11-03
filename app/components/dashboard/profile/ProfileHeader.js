@@ -8,9 +8,12 @@ const profileHeader = function (props) {
     <div className="row">
      <div className="col-xs-12">
       <div className="page--section-heading fx fd-col-mob fx-wrap fx--ai-c fx--jc-fs">
-       <div className="profile-img"></div>
+       <div className="profile-img">
+
+         <img className="profileImage" src={props.user.get('avatar')} ></img>
+          </div>
        <div className="profile-info">
-        <h1 className="profile-title">Tarun Sharma</h1>
+        <h1 className="profile-title">{props.user.get('name')}</h1>
         <p className="desc"></p>
         <div className="page--section-subheading">Member Since: October, 2017</div>
        </div>
@@ -18,7 +21,7 @@ const profileHeader = function (props) {
         <div className="repo-sec">
          <div className="repo-panel">
           <div className="repo-title">
-           <span className="txt">Reputation
+           <span className="txt">{props.user.get('status')}
             <a href="javascript:void(0);"></a>
            </span>
           </div>

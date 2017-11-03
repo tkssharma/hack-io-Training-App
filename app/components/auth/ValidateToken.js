@@ -3,7 +3,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import * as Action from 'app/redux/actions';
-import {Link, browserHistory} from 'react-router';
+import {Link, hashHistory} from 'react-router';
 import {message, Spin} from 'antd';
 
 import * as API from 'app/api'
@@ -35,12 +35,13 @@ let ValidateTokenPage = (props) => {
 				message.success('Successfully logged in.', 3);
 				Auth.setAccessToken(access_token);
 				props.authUpdateUserData(jwt.decode(access_token));
-				browserHistory.push('/user/dashboard');
+				hashHistory.push('/user/dashboard');
+
 			} else {
 				message.error('Invalid auth token, please try logging in again', 3);
 				Auth.deleteAccessToken();
 				API.setAuthToken();
-				browserHistory.push('/auth/login');
+				hashHistory.push('/auth/login');
 			}
 		})
 		.catch((response) => {
@@ -65,7 +66,7 @@ let ValidateTokenPage = (props) => {
 
 	const ui_verifying = (
 		<div className="content">
-		<h1>Verifying your access token, please wait...</h1>
+		<h4>Verifying your access,please wait...</h4>
 		<div className="m-t-20 center">
 		<Spin size="large"/>
 		</div>

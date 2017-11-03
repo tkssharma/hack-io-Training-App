@@ -35,7 +35,7 @@ import AuthLayout from 'app/components/layout/Auth';
 //-----------------------dashboard pages -------------//
 import DashBoardComponent from 'app/components/dashboard/DashboardPage';
 import ProfileComponent from 'app/components/dashboard/ProfilePage'
-import EditProfileComponent from 'app/components/dashboard/EditProfilePage'
+//import EditProfileComponent from 'app/components/dashboard/EditProfilePage'
 // ------------------Application Pages-------------//
 import LearningComponent from 'app/components/learning/LearningPage'
 //------------------learning-------------------//
@@ -74,7 +74,7 @@ render((
 				<IndexRoute component={DashBoardComponent}/>
 				<Route path="dashboard" component={DashBoardComponent}/>
 				<Route path="profile" component={ProfileComponent}/>
-				<Route path="update" component={EditProfileComponent}/>
+
 
 			</Route>
 

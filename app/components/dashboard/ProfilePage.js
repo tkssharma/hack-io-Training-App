@@ -18,7 +18,7 @@ class ProfilePage extends Component {
  render() {
   return (
    <div className="dashboard-wrapper page--section no-paddingtop">
-     <ProfileHeader />
+     <ProfileHeader  user={this.props.user}/>
     <div className="page--section-body tutorial--tut-list">
      <div className="container alt">
       <div className="row">

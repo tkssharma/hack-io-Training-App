@@ -1475,3 +1475,12 @@ input, label, select, textarea {
 .search-bar .icon {
     left: 90%;
 }
+
+.profileImage{
+width: 72pt;
+height: 72pt;
+margin-right: 20px;
+/* border: 2px solid #bdbdbd; */
+border-radius: 6px;
+background-size: cover;
+}

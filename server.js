@@ -8,7 +8,7 @@ const publicPath = express.static(path.join(__dirname, './public'))
 app.use('/public', publicPath)
 
 app.get('/', function (req, res) { res.sendFile(indexPath) });
-const port = (process.env.PORT || 8088);
+const port = (process.env.PORT || 2244);
 
 app.listen(port)
 console.log(`Listening at http://localhost:${port}`)
