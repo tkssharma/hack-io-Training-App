@@ -11,30 +11,37 @@ import Helper from 'app/global/helper';
 import VideoList from '../home/VideoList';
 import Searchbar from '../home/Searchbar';
 import UserRemoteSelect from './select';
+import AppLoader from '../home/AppLoader';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    user: state
-      .auth
-      .get('user')
+    user: state.auth.get('user'),
+    course: state.course
   }
 }
 const mapDispatchToProps = dispatch => ({
-  // fetchProfile: () => dispatch(Action.fetchProfile()),
+  loadCourses: () => dispatch(Action.courseLoad()),
 });
 
 class DashBoardComponent extends React.Component {
   constructor(props) {
     super(props);
   }
+  componentWillReceiveProps(nextProps){
+    if(nextProps.value!==this.props.value){alert(nextProps.value)}
+ }
 
   componentWillMount() {
-    //this.props.fetchProfile();
+    this.props.loadCourses();
   }
+
   render() {
     const {user} = this.props;
 
     return (
+      <div>
+      { (this.props.course && this.props.course.loaded) ?  (<AppLoader loaded={true} />) : (<AppLoader loaded={false} />)}
+
       <div className="dashboard-wrapper">
         <div className="home--hero-header">
           <div className="container">
@@ -55,9 +62,10 @@ class DashBoardComponent extends React.Component {
         </div>
         <div className="page--section">
           <div className="container">
-            <VideoList/>
+            <VideoList courseData = {this.props.course.courseData}/>
           </div>
         </div>
+      </div>
       </div>
     );
   }

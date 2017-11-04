@@ -31,6 +31,9 @@ import {
 	UI_MODALS_UPDATE_FIELD,
 	UI_LOADED_UPDATE_FIELD,
 
+	COURSE_LOAD,
+	COURSE_LOAD_SUCCESS,
+
 	USER_CREATE_REGISTRATION_MANY,
 	USER_CREATE_REGISTRATION,
 	USER_UPDATE_REGISTRATION_GUEST_DATA,
@@ -76,16 +79,33 @@ export function fetchProfile() {
 				dispatch(fetchProfileSuccess(json));
 			})
 			.catch((error) => {
-				// dispatch(AdminLoginfailure(error)); notification.warning({message: 'Error
-				// Occoured', description: error});
 			});
 	}
 }
 
 /*
-Auth actions
+courseLoad actions
 */
-
+export function courseLoadSuccess(data) {
+	return {
+		type: 'COURSE_LOAD_SUCCESS',
+		payload: {
+			data: data
+		}
+	}
+}
+export function courseLoad() {
+	return dispatch => {
+		return axios
+			.get(API.url('courseFetch'))
+			.then((response) => {
+				let json = response.data.courses;
+				dispatch(courseLoadSuccess(json));
+			})
+			.catch((error) => {
+			});
+	}
+}
 export function authUpdateRegisterFormField(data) {
 	return {type: AUTH_UPDATE_REGISTER_FORM_FIELD, payload: data}
 }

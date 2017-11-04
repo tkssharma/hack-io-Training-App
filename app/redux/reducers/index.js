@@ -6,7 +6,8 @@ import {
 
 import auth from './Auth';
 import user from './User';
-import ui from './UI'
+import ui from './UI';
+import course from './Course'
 import app from './App';
 import {
     routerReducer
@@ -17,6 +18,7 @@ const GenNextApp = combineReducers({
     user,
     ui,
     app,
+    course,
     routing: routerReducer,
 });
 
