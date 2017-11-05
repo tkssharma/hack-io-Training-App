@@ -5,6 +5,8 @@ import {connect} from 'react-redux';
 import ProfileHeader from './profile/profileHeader';
 import SocialBox from './profile/SocialBox';
 import {Tabs} from 'antd';
+import VideoList from '../home/VideoList';
+
 const TabPane = Tabs.TabPane;
 class ProfilePage extends Component {
  constructor(props) {
@@ -36,6 +38,10 @@ class ProfilePage extends Component {
          <div className="sidebar-content profile-sidebar col-sm-4">
          <SocialBox />
          </div>
+        </div>
+        <div className="page--section">
+          <div className="container">
+          </div>
         </div>
        </div>
       </div>

@@ -3,7 +3,7 @@ import  VideoListItem from './VideoListItem';
 
 const VideoList = props => {
   const list = props.courseData.map(function(_course){
-    return (<VideoListItem data={_course} key={_course.ID} />)
+    return (<VideoListItem data={_course} key={_course.id} />)
   })
   return (
    <div className="row">

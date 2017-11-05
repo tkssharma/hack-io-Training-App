@@ -5,6 +5,7 @@ export default {
 	register: 'auth/register',
 	adminMenu : 'users/api/menu',
 	login: 'auth/login',
+	submitCourse : 'course',
 	validate_auth: 'auth/validate',
 	reset_password: 'auth/reset-password',
 	userfetch : 'user/fetch',

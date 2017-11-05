@@ -36,7 +36,13 @@ const menu = (
 
 class CommonHeader extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
+    this.submitTutorial = this.submitTutorial.bind(this);
+  }
+  submitTutorial(e){
+    e.preventDefault();
+    e.stopPropagation();
+    this.props.submitTutorial()
   }
 
   render() {
@@ -45,8 +51,8 @@ class CommonHeader extends React.Component {
       <div className="navbar-collapse collapse hidden-xs" id="navbarCollapse">
         <ul className="nav navbar-nav">
           <li className="cta-link cta-link-border">
-            <Link to="/user/dashboard" className="js-open-submit-tutorial  " data-message="">
-              <i className="ion-plus"></i> Submit a Tutorial</Link>
+            <a href="" onClick={this.submitTutorial} className="js-open-submit-tutorial  " data-message="">
+              <i className="ion-plus"></i> Submit a Tutorial</a>
 
           </li>
           <li className="cta-link cta-link-border">

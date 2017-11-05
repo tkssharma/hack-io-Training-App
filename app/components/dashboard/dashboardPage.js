@@ -12,6 +12,7 @@ import VideoList from '../home/VideoList';
 import Searchbar from '../home/Searchbar';
 import UserRemoteSelect from './select';
 import AppLoader from '../home/AppLoader';
+import Model from './SubmitCourseModel';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -21,11 +22,14 @@ const mapStateToProps = (state, ownProps) => {
 }
 const mapDispatchToProps = dispatch => ({
   loadCourses: () => dispatch(Action.courseLoad()),
+  submitTutorial : () => dispatch(Action.submitTutorialModelClose())
+
 });
 
 class DashBoardComponent extends React.Component {
   constructor(props) {
     super(props);
+    this.closeModel = this.closeModel.bind(this);
   }
   componentWillReceiveProps(nextProps){
     if(nextProps.value!==this.props.value){alert(nextProps.value)}
@@ -34,14 +38,17 @@ class DashBoardComponent extends React.Component {
   componentWillMount() {
     this.props.loadCourses();
   }
+  closeModel(){
+    this.props.submitTutorial()
+  }
 
   render() {
     const {user} = this.props;
 
     return (
       <div>
-      { (this.props.course && this.props.course.loaded) ?  (<AppLoader loaded={true} />) : (<AppLoader loaded={false} />)}
-
+     {(this.props.course && this.props.course.tutorialModel ) ? (<Model closeModel={this.closeModel} open={true}/>): (<Model closeModel={this.closeModel} open={false} />)}
+     { (this.props.course && this.props.course.loaded) ?  (<AppLoader loaded={true} />) : (<AppLoader loaded={false} />)}
       <div className="dashboard-wrapper">
         <div className="home--hero-header">
           <div className="container">

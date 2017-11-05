@@ -33,7 +33,10 @@ import {
 
 	COURSE_LOAD,
 	COURSE_LOAD_SUCCESS,
+	SUBMIT_COURSE_SUCCESS,
 
+	SUBMIT_NEW_TUTS_MODEL_OPEN,
+	SUBMIT_NEW_TUTS_MODEL_CLOSE,
 	USER_CREATE_REGISTRATION_MANY,
 	USER_CREATE_REGISTRATION,
 	USER_UPDATE_REGISTRATION_GUEST_DATA,
@@ -50,8 +53,33 @@ import {hashHistory} from 'react-router';
 
 import routes from 'app/redux/constants/Routes';
 
+export function submitCoursesSuccess(){
+	return {
+		type: 'SUBMIT_COURSE_SUCCESS'
+	}
+}
+export function submitCourses(data){
+	return dispatch => {
+		return axios
+			.post(API.url('submitCourse'),data)
+			.then((response) => {
+				let json = response.data;
+				message.info('Course has been added successfully', 3);
+				dispatch(submitCoursesSuccess());
+			})
+			.catch((error) => {
+			});
+	}
+}
 export function reduxResetState() {
 	return {type: REDUX_RESET_STATE}
+}
+
+export function submitTutorialModel(){
+	  return { type : SUBMIT_NEW_TUTS_MODEL_OPEN}
+}
+export function submitTutorialModelClose(){
+	return { type : SUBMIT_NEW_TUTS_MODEL_CLOSE}
 }
 
 export function fetchProfileSuccess(data) {
