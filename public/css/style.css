@@ -12290,7 +12290,8 @@ footer .social-links li a i {
 }
 
 .topic-grid-item {
-    padding-bottom: 15px;
+    padding-bottom: 15px !important;
+    padding-top: 15px !important;
     display: flex;
     align-items: center;
     justify-content: flex-start;

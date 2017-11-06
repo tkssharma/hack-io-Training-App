@@ -9,10 +9,12 @@ import CommonFooter from '../../components/Footer';
 import * as Action from 'app/redux/actions';
 import Helper from 'app/global/helper';
 import VideoList from '../home/VideoList';
+import CourseList from '../home/CourseList';
 import Searchbar from '../home/Searchbar';
 import UserRemoteSelect from './select';
 import AppLoader from '../home/AppLoader';
 import Model from './SubmitCourseModel';
+import courseListArray from './courseList';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -30,6 +32,7 @@ class DashBoardComponent extends React.Component {
   constructor(props) {
     super(props);
     this.closeModel = this.closeModel.bind(this);
+    this.openCourseData = this.openCourseData.bind(this);
   }
   componentWillReceiveProps(nextProps){
     if(nextProps.value!==this.props.value){alert(nextProps.value)}
@@ -40,6 +43,11 @@ class DashBoardComponent extends React.Component {
   }
   closeModel(){
     this.props.submitTutorial()
+  }
+  openCourseData(data,e){
+    e.preventDefault();
+    console.log('coming ....'+data);
+    // fetch data for matched technology
   }
 
   render() {
@@ -69,7 +77,7 @@ class DashBoardComponent extends React.Component {
         </div>
         <div className="page--section">
           <div className="container">
-            <VideoList courseData = {this.props.course.courseData}/>
+            <CourseList openCourseData ={this.openCourseData} courseData = {courseListArray}/>
           </div>
         </div>
       </div>
