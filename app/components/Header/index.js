@@ -6,6 +6,9 @@ import * as Action from 'app/redux/actions';
 import Helper from 'app/global/helper';
 import { Menu, Dropdown, Button, Icon } from 'antd';
 import UserRemoteSelect from '../dashboard/select';
+import Select from 'react-select';
+import courseListArray from '../dashboard/courseList';
+import Model from './SubmitCourseModel';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -14,11 +17,15 @@ const mapStateToProps = (state, ownProps) => {
       .get('default'),
     user: state
       .auth
-      .get('user')
+      .get('user'),
+      course: state.course
+
   }
 }
 const mapDispatchToProps = dispatch => ({
-  //appConfigToggleAside: () => dispatch( Action.appConfigToggleAside() )
+  submitTutorialModelclose: () => dispatch(Action.submitTutorialModelClose()),
+  submitTutorial : () => dispatch(Action.submitTutorialModel())
+
 });
 const menu = (
   <Menu>
@@ -28,8 +35,15 @@ const menu = (
     <Menu.Item>
     <Link to="user/profile" rel="noopener noreferrer" >Profile</Link>
     </Menu.Item>
+
     <Menu.Item>
     <Link to="learning/technology" rel="noopener noreferrer" >My Learnings</Link>
+    </Menu.Item>
+    <Menu.Item>
+    <Link to="learning/videos" rel="noopener noreferrer" >Learning Videos</Link>
+    </Menu.Item>
+    <Menu.Item>
+    <Link to="auth/logout" rel="noopener noreferrer" >Logout</Link>
     </Menu.Item>
   </Menu>
 );
@@ -37,15 +51,35 @@ const menu = (
 class CommonHeader extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      selectedTech : null
+    }
     this.submitTutorial = this.submitTutorial.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.closeModel = this.closeModel.bind(this);
+
   }
   submitTutorial(e){
     e.preventDefault();
     e.stopPropagation();
     this.props.submitTutorial()
   }
+  closeModel() {
+    this
+      .props
+      .submitTutorialModelclose()
+  }
+  handleChange(val) {
+    console.log('Selected: ', val);
+    this.setState({selectedTech : val});
+    this.props.handleTechnologyChange(val);
+  }
 
   render() {
+    // populating react-select field with values
+    const options = courseListArray.map(function(_tech){
+      return { value : _tech, label : _tech }
+    })
 
     let _loggedIn = (
       <div className="navbar-collapse collapse hidden-xs" id="navbarCollapse">
@@ -56,12 +90,8 @@ class CommonHeader extends React.Component {
 
           </li>
           <li className="cta-link cta-link-border">
-            <Link to="/auth/logout" className="js-open-submit-tutorial  " data-message="">
-            <i className="ion-user"></i> Logout</Link>
-          </li>
-          <li className="cta-link cta-link-border">
           <Dropdown overlay={menu} placement="bottomLeft">
-          <Button type="primary" size="large"><Icon type="user-add" /> { this
+          <Button type="primary" className="js-open-submit-tutorial " size="large"><Icon type="user-add" /> { this
             .props
             .user
             .get('name')} </Button>
@@ -85,6 +115,10 @@ class CommonHeader extends React.Component {
       </div>
     );
     return (
+     <div>
+           {(this.props.course && this.props.course.tutorialModel)
+          ? (<Model closeModel={this.closeModel} open={true}/>)
+          : (<Model closeModel={this.closeModel} open={false}/>)}
       <nav className="navbar navbar-fixed-top">
         <div className="container">
           <div className="navbar-holder">
@@ -119,8 +153,12 @@ class CommonHeader extends React.Component {
                 <div className="form-holder">
                   <div id="navbarSearch"></div>
                   <i className="icon ion-ios-search-strong"></i>
-                  <UserRemoteSelect />
-
+                  <Select
+                      name="form-field-name"
+                      value={this.state.selectedTech}
+                      options={options}
+                      onChange={this.handleChange}
+                    />
                 </div>
               </form>
             </div>
@@ -134,6 +172,7 @@ class CommonHeader extends React.Component {
           </div>
         </div>
       </nav>
+      </div>
     )
   }
 }

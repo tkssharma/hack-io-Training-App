@@ -4,7 +4,9 @@ import React from 'react';
 import {render} from 'react-dom';
 import asyncComponent from './AsyncComponent'
 import '../public/css/style.css';
-import '../public/css/override.css'
+import '../public/css/override.css';
+import '../public/css/react-select.css';
+
 import {
 	Router,
 	Redirect,
@@ -37,7 +39,9 @@ import DashBoardComponent from 'app/components/dashboard/DashboardPage';
 import ProfileComponent from 'app/components/dashboard/ProfilePage'
 //import EditProfileComponent from 'app/components/dashboard/EditProfilePage'
 // ------------------Application Pages-------------//
-import LearningComponent from 'app/components/learning/LearningPage'
+import TechnologyComponent from 'app/components/technology/TechnologyPage';
+import LearningVideoComponent from 'app/components/technology/LearningVideoPage'
+
 //------------------learning-------------------//
 import AppLayout from 'app/components/layout/Default';
 import PublicLayout from 'app/components/layout/Public';
@@ -75,15 +79,16 @@ render((
 				<Route path="dashboard" component={DashBoardComponent}/>
 				<Route path="profile" component={ProfileComponent}/>
 
-
 			</Route>
 
 			<Route
 				path="learning"
 				component={PublicLayout}
 				onEnter={AuthMiddleware.authenticatedUsersOnly}>
-				<IndexRoute component={LearningComponent}/>
-				<Route path="technology" component={LearningComponent}/>
+				<IndexRoute component={TechnologyComponent}/>
+				<Route path="technology" component={TechnologyComponent}/>
+				<Route path="videos" component={LearningVideoComponent}/>
+
 			</Route>
 
 		</Router>

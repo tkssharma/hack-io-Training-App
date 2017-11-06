@@ -16,22 +16,19 @@ import * as Action from 'app/redux/actions';
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		user: state.auth.get('user'),
-		course: state.course
-	}
+		user: state.auth.get('user')
+		}
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
-		authUpdateUserData: (data) => dispatch(Action.authUpdateUserData(data)),
-		submitTutorial : () => dispatch(Action.submitTutorialModel())
-	}
+		authUpdateUserData: (data) => dispatch(Action.authUpdateUserData(data))
+		}
 }
 
 class PublicPage extends Component {
 
 	constructor(props) {
 		super(props);
-		this.submitTutorial = this.submitTutorial.bind(this);
 	}
 	componentWillMount() {
 		var self = this;
@@ -62,13 +59,11 @@ class PublicPage extends Component {
 				});
 		}
 	}
-	submitTutorial(){
-    this.props.submitTutorial();
-	}
+
 	render() {
 		return (
 			<div>
-				<HeaderComp submitTutorial={this.submitTutorial}/>
+				<HeaderComp />
 				{this.props.children}
 				<FooterComp/>
 				</div>

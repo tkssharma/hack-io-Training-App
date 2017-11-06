@@ -1488,6 +1488,11 @@ margin-right: 20px;
 border-radius: 6px;
 background-size: cover;
 }
+.ant-btn-primary {
+    color: #fff;
+    background-color: #d03628 !important;
+    border-color: #d03628 !important;
+}
 
 .loader-dots {
     position: fixed;

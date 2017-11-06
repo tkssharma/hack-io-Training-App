@@ -1,24 +1,21 @@
 'use strict';
 
-import React from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import {bindActionCreators} from 'redux';
-import CommonHeader from '../../components/Header'
-import CommonFooter from '../../components/Footer';
 import * as Action from 'app/redux/actions';
-import Helper from 'app/global/helper';
 import VideoList from '../home/VideoList';
-import CourseList from '../home/CourseList';
 import Searchbar from '../home/Searchbar';
-import UserRemoteSelect from './select';
-import courseListArray from './courseList';
-import Select from 'react-select';
 // Be sure to include styles at some point, probably during your bootstrapping
+import AppLoader from '../home/AppLoader';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    user: state.auth.get('user'),
+    user: state
+      .auth
+      .get('user'),
     course: state.course
   }
 }
@@ -26,46 +23,52 @@ const mapDispatchToProps = dispatch => ({
   loadCourses: () => dispatch(Action.courseLoad())
 });
 
-class DashBoardComponent extends React.Component {
+class LearningVideos extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      filteredCourseList: courseListArray
-    }
-    this.filterCourses = this
-      .filterCourses
+      this.state ={
+        filteredLoadedCourse : []
+      }
+    this.openCourseData = this
+      .openCourseData
+      .bind(this);
+    this.filterloadedCourses = this
+      .filterloadedCourses
       .bind(this);
   }
   componentWillReceiveProps(nextProps) {
-    if (nextProps.value !== this.props.value) {
-      alert(nextProps.value)
+    if (nextProps.course !== this.props.course) {
+      //alert(nextProps.course)
+      this.setState({filteredLoadedCourse : nextProps.course.courseData})
     }
   }
-
+  filterloadedCourses(data) {
+    var searchString = data.trim().toLowerCase();
+    var filteredLoadedCourse = [];
+    if (searchString.length > 0 && this.props.course) {
+      // We are searching. Filter the results.
+      filteredLoadedCourse = this.props.course.courseData.filter(function (l) {
+        return l.Title.toLowerCase()
+          .match(searchString);
+      });
+    }
+    this.setState({filteredLoadedCourse : filteredLoadedCourse})
+  }
   componentWillMount() {
     this
       .props
       .loadCourses();
   }
-
-  filterCourses(data) {
-    var searchString = data.trim().toLowerCase();
-    var filteredCourseList = courseListArray;
-    if (searchString.length > 0) {
-      // We are searching. Filter the results.
-      filteredCourseList = courseListArray.filter(function (l) {
-        return l
-          .toLowerCase()
-          .match(searchString);
-      });
-    }
-    this.setState({filteredCourseList : filteredCourseList})
+  openCourseData(data, e) {
+    e.preventDefault();
+    console.log('coming ....' + data);
   }
-
   render() {
-    const {user} = this.props;
-
     return (
+      <div>
+        {(this.props.course && this.props.course.loaded)
+          ? (<AppLoader loaded={true}/>)
+          : (<AppLoader loaded={false}/>)}
         <div className="dashboard-wrapper">
           <div className="home--hero-header">
             <div className="container">
@@ -78,7 +81,7 @@ class DashBoardComponent extends React.Component {
                     </a>
                   </div>
                   <h1 className="hero-header">Search Best programming tutorials</h1>
-                  <Searchbar filterCourses={this.filterCourses}/>
+                  <Searchbar filterCourses={this.filterloadedCourses}/>
                 </div>
                 <div className="clearfix"></div>
               </div>
@@ -86,12 +89,13 @@ class DashBoardComponent extends React.Component {
           </div>
           <div className="page--section">
             <div className="container">
-              <CourseList openCourseData ={this.openCourseData} courseData={this.state.filteredCourseList}/>
+              <VideoList courseData={this.state.filteredLoadedCourse}/>
             </div>
           </div>
         </div>
-    );
+      </div>
+    )
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DashBoardComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(LearningVideos);
