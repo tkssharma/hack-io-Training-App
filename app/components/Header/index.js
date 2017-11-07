@@ -105,9 +105,8 @@ class CommonHeader extends React.Component {
       <div className="navbar-collapse collapse hidden-xs" id="navbarCollapse">
         <ul className="nav navbar-nav">
           <li className="cta-link cta-link-border">
-            <a href="#" className="js-open-submit-tutorial  " data-message="">
-              <i className="ion-plus"></i>
-              Submit a Tutorial</a>
+            <Link to="learning/videos" className="js-open-submit-tutorial  " data-message="">
+              <i className="ion-social-youtube"></i>  Video Tutorials</Link>
             <Link to="/auth/login" className="js-open-submit-tutorial  " data-message="">
               Login</Link>
           </li>

@@ -1,13 +1,14 @@
 'use strict';
 
-import {COURSE_LOAD, COURSE_LOAD_SUCCESS, SUBMIT_COURSE_SUCCESS,SUBMIT_NEW_TUTS_MODEL_OPEN,SUBMIT_NEW_TUTS_MODEL_CLOSE} from 'app/redux/constants';
+import {COURSE_LOAD, COURSE_LOAD_SUCCESS, SELECTED_COURSE_TUTS_SUCCESS, SUBMIT_COURSE_SUCCESS,SUBMIT_NEW_TUTS_MODEL_OPEN,SUBMIT_NEW_TUTS_MODEL_CLOSE} from 'app/redux/constants';
 
 import Immutable from 'immutable';
 
 const COURSE_default_data = {
 	courseData: [],
 	loaded: false,
-	tutorialModel: false
+	tutorialModel: false,
+	selectedCourseTutorials : []
 }
 function loadCourse(course = COURSE_default_data, action) {
 
@@ -35,10 +36,14 @@ function loadCourse(course = COURSE_default_data, action) {
 	else if (action.type === SUBMIT_COURSE_SUCCESS) {
 		return {
 			...course,
-			tutorialModel: true
+			tutorialModel: false
 		}
 	}
-
+	else if (action.type === SELECTED_COURSE_TUTS_SUCCESS) {
+		return {
+			...course , selectedCourseTutorials : action.payload.data
+		}
+	}
 	else {
 		return course;
 	}

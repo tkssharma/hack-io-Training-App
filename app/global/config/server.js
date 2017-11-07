@@ -7,6 +7,7 @@ export default {
 	login: 'auth/login',
 	submitCourse : 'course',
 	validate_auth: 'auth/validate',
+	fetchSelectedCourse : 'course/fetch',
 	reset_password: 'auth/reset-password',
 	userfetch : 'user/fetch',
 	courseFetch : 'course',

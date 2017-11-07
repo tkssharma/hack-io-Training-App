@@ -29,9 +29,9 @@ class ProfilePage extends Component {
 
          <div className="main-content border col-sm-8">
           <Tabs defaultActiveKey="1" onChange={this.callback}>
-           <TabPane tab="Tab 1" key="1">Content of Tab Pane 1</TabPane>
-           <TabPane tab="Tab 2" key="2">Content of Tab Pane 2</TabPane>
-           <TabPane tab="Tab 3" key="3">Content of Tab Pane 3</TabPane>
+           <TabPane tab="Submitted Courses" key="1">Content of Tab Pane 1</TabPane>
+           <TabPane tab="Saved Courses" key="2">Content of Tab Pane 2</TabPane>
+           <TabPane tab="Liked Videos" key="3">Content of Tab Pane 3</TabPane>
           </Tabs>
          </div>
 

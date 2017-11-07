@@ -34,6 +34,7 @@ import {
 	COURSE_LOAD,
 	COURSE_LOAD_SUCCESS,
 	SUBMIT_COURSE_SUCCESS,
+	SELECTED_COURSE_TUTS_SUCCESS,
 
 	SUBMIT_NEW_TUTS_MODEL_OPEN,
 	SUBMIT_NEW_TUTS_MODEL_CLOSE,
@@ -52,6 +53,29 @@ import jwt from 'jsonwebtoken';
 import {hashHistory} from 'react-router';
 
 import routes from 'app/redux/constants/Routes';
+
+export function openSelectedCourseTutorialsSuccess(data){
+	return {
+		type: 'SELECTED_COURSE_TUTS_SUCCESS',
+			payload: {
+				data: data
+			}
+	}
+}
+export function openSelectedCourseTutorials(key){
+	return dispatch => {
+		return axios
+			.get(API.url('fetchSelectedCourse')+"/"+key)
+			.then((response) => {
+				let json = response.data;
+				message.info('Course has been added successfully', 3);
+				dispatch(openSelectedCourseTutorialsSuccess(json));
+				hashHistory.push(routes.user_dashboard);
+			})
+			.catch((error) => {
+			});
+	}
+}
 
 export function submitCoursesSuccess(){
 	return {

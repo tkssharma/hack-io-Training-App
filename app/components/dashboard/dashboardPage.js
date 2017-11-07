@@ -23,7 +23,8 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 const mapDispatchToProps = dispatch => ({
-  loadCourses: () => dispatch(Action.courseLoad())
+  loadCourses: () => dispatch(Action.courseLoad()),
+  openSelectedCourseTutorials : (key) => dispatch(Action.openSelectedCourseTutorials(key)),
 });
 
 class DashBoardComponent extends React.Component {
@@ -35,11 +36,18 @@ class DashBoardComponent extends React.Component {
     this.filterCourses = this
       .filterCourses
       .bind(this);
+      this.openCourseData = this
+      .openCourseData
+      .bind(this);
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.value !== this.props.value) {
       alert(nextProps.value)
     }
+  }
+  openCourseData(key,e){
+      e.preventDefault();
+     this.props.openSelectedCourseTutorials(key);
   }
 
   componentWillMount() {
