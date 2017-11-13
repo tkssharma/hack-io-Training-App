@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import ProfileHeader from './profile/profileHeader';
+import ProfileHeader from './profile/ProfileHeader';
 import SocialBox from './profile/SocialBox';
 import {Tabs} from 'antd';
 import VideoList from '../home/VideoList';
