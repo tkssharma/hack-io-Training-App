@@ -7,7 +7,7 @@ import Helper from 'app/global/helper';
 import { Menu, Dropdown, Button, Icon } from 'antd';
 import UserRemoteSelect from '../dashboard/select';
 import Select from 'react-select';
-import courseListArray from '../dashboard/courseList';
+import courseListArray from '../dashboard/CourseList';
 import Model from './SubmitCourseModel';
 
 const mapStateToProps = (state, ownProps) => {

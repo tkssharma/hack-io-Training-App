@@ -35,8 +35,8 @@ import ResetPasswordPage from 'app/components/auth/ResetPassword';
 import ValidateTokenPage from 'app/components/auth/ValidateToken';
 import AuthLayout from 'app/components/layout/Auth';
 //-----------------------dashboard pages -------------//
-import DashBoardComponent from 'app/components/dashboard/dashboardPage';
-import ProfileComponent from 'app/components/dashboard/profilePage'
+import DashBoardComponent from 'app/components/dashboard/DashboardPage';
+import ProfileComponent from 'app/components/dashboard/ProfilePage'
 //import EditProfileComponent from 'app/components/dashboard/EditProfilePage'
 // ------------------Application Pages-------------//
 import TechnologyComponent from 'app/components/technology/TechnologyPage';

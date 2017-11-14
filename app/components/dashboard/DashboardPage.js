@@ -12,7 +12,7 @@ import VideoList from '../home/VideoList';
 import CourseList from '../home/CourseList';
 import Searchbar from '../home/Searchbar';
 import UserRemoteSelect from './select';
-import courseListArray from './courseList';
+import courseListArray from './CourseList';
 import Select from 'react-select';
 // Be sure to include styles at some point, probably during your bootstrapping
 
