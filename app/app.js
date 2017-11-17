@@ -39,7 +39,8 @@ import DashBoardComponent from 'app/components/dashboard/DashboardPage';
 import ProfileComponent from 'app/components/dashboard/ProfilePage'
 //import EditProfileComponent from 'app/components/dashboard/EditProfilePage'
 // ------------------Application Pages-------------//
-import TechnologyComponent from 'app/components/technology/TechnologyPage';
+import TrainingComponent from 'app/components/technology/TrainingPage';
+import TutorialComponent from 'app/components/technology/TutorialPage';
 import LearningVideoComponent from 'app/components/technology/LearningVideoPage'
 
 //------------------learning-------------------//
@@ -85,10 +86,10 @@ render((
 				path="learning"
 				component={PublicLayout}
 				onEnter={AuthMiddleware.authenticatedUsersOnly}>
-				<IndexRoute component={TechnologyComponent}/>
-				<Route path="technology" component={TechnologyComponent}/>
+				<IndexRoute component={TrainingComponent}/>
+				<Route path="training" component={TrainingComponent}/>
 				<Route path="videos" component={LearningVideoComponent}/>
-
+				<Route path="tutorial" component={TutorialComponent}/>
 			</Route>
 
 		</Router>

@@ -81,7 +81,10 @@ div[data-reactroot] {
     vertical-align: middle;
     display: inline-block;
 }
-
+.add-training{
+    color: #fff;
+    background-color: #d03528;
+}
 .login-row {
     height: 100%;
 }

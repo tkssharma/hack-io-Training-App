@@ -1,7 +1,13 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-const LearningHeading = (props) =>{
+
+class LearningTutorial extends Component {
+    constructor(props) {
+      super(props);
+    }
+
+render(){
   return (<div className="learning-wrapper">
    <div className="page--section-header tutorial--tut-title">
     <div className="container alt">
@@ -165,5 +171,7 @@ const LearningHeading = (props) =>{
 </div>
   );
  }
+}
 
- export default LearningHeading;
+ 
+ export default LearningTutorial;

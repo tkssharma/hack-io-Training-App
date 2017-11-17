@@ -1,10 +1,10 @@
 'use strict';
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {Link} from 'react-router';
-import {bindActionCreators} from 'redux';
+import { connect } from 'react-redux';
+import { Link } from 'react-router';
+import { bindActionCreators } from 'redux';
 import * as Action from 'app/redux/actions';
 import VideoList from '../home/VideoList';
 import Searchbar from '../home/Searchbar';
@@ -26,9 +26,9 @@ const mapDispatchToProps = dispatch => ({
 class LearningVideos extends Component {
   constructor(props) {
     super(props);
-      this.state ={
-        filteredLoadedCourse : []
-      }
+    this.state = {
+      filteredLoadedCourse: []
+    }
     this.openCourseData = this
       .openCourseData
       .bind(this);
@@ -39,7 +39,7 @@ class LearningVideos extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.course !== this.props.course) {
       //alert(nextProps.course)
-      this.setState({filteredLoadedCourse : nextProps.course.courseData})
+      this.setState({ filteredLoadedCourse: nextProps.course.courseData })
     }
   }
   filterloadedCourses(data) {
@@ -51,8 +51,12 @@ class LearningVideos extends Component {
         return l.Title.toLowerCase()
           .match(searchString);
       });
+      this.setState({ filteredLoadedCourse: filteredLoadedCourse })
+
+    } else {
+      this.setState({ filteredLoadedCourse: this.props.course.courseData })
+
     }
-    this.setState({filteredLoadedCourse : filteredLoadedCourse})
   }
   componentWillMount() {
     this
@@ -67,8 +71,8 @@ class LearningVideos extends Component {
     return (
       <div>
         {(this.props.course && this.props.course.loaded)
-          ? (<AppLoader loaded={true}/>)
-          : (<AppLoader loaded={false}/>)}
+          ? (<AppLoader loaded={true} />)
+          : (<AppLoader loaded={false} />)}
         <div className="dashboard-wrapper">
           <div className="home--hero-header">
             <div className="container">
@@ -77,11 +81,11 @@ class LearningVideos extends Component {
                   <div className="center-logo">
                     <a href="https://next.io">
                       <img
-                        src="https://s3.amazonaws.com/codementor_content/2016-Jun/code_fellows.png"/>
+                        src="https://s3.amazonaws.com/codementor_content/2016-Jun/code_fellows.png" />
                     </a>
                   </div>
                   <h1 className="hero-header">Search Best programming tutorials</h1>
-                  <Searchbar filterCourses={this.filterloadedCourses}/>
+                  <Searchbar filterCourses={this.filterloadedCourses} />
                 </div>
                 <div className="clearfix"></div>
               </div>
@@ -89,7 +93,7 @@ class LearningVideos extends Component {
           </div>
           <div className="page--section">
             <div className="container">
-              <VideoList courseData={this.state.filteredLoadedCourse}/>
+              <VideoList courseData={this.state.filteredLoadedCourse} />
             </div>
           </div>
         </div>

@@ -70,7 +70,7 @@ export function openSelectedCourseTutorials(key){
 				let json = response.data;
 				message.info('Course has been added successfully', 3);
 				dispatch(openSelectedCourseTutorialsSuccess(json));
-				hashHistory.push(routes.user_dashboard);
+				hashHistory.push(routes.learning_tutorials);
 			})
 			.catch((error) => {
 			});

@@ -15,6 +15,7 @@ import UserRemoteSelect from './select';
 import courseListArray from './CourseList';
 import Select from 'react-select';
 // Be sure to include styles at some point, probably during your bootstrapping
+import {hashHistory} from 'react-router';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -48,6 +49,9 @@ class DashBoardComponent extends React.Component {
   openCourseData(key,e){
       e.preventDefault();
      this.props.openSelectedCourseTutorials(key);
+     // tutorial
+     //hashHistory.push('learning/tutorial');
+     
   }
 
   componentWillMount() {

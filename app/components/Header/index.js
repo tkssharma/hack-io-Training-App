@@ -37,7 +37,7 @@ const menu = (
     </Menu.Item>
 
     <Menu.Item>
-    <Link to="learning/technology" rel="noopener noreferrer" >My Learnings</Link>
+    <Link to="learning/training" rel="noopener noreferrer" >My Trainings</Link>
     </Menu.Item>
     <Menu.Item>
     <Link to="learning/videos" rel="noopener noreferrer" >Learning Videos</Link>
