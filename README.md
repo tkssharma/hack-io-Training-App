@@ -21,13 +21,22 @@ Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
 The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
-REST API to support application features
+React application features
 
   - Redux used with reducers
   - React used with ES6 + Webpack
   - Redux is used with Immutable JS
   - React Routing using React-Router
   - Redux forms for validation and data submit
+  - Redux for all container components
+
+REST API to support application features
+
+  - Social auth with passport
+  - Node Express with Mongo Collections
+  - Node js deployed on PM2
+  - API support for HTTP methods with error handling 
+  
 
 # MEAN application using passport login and Node JS API #
 
