@@ -38,10 +38,10 @@ class submitTraining extends React.Component {
 		this.closeModel = this.closeModel.bind(this);
 
 	}
-	submitTutorial(e) {
+	submitTraining(e) {
 		e.preventDefault();
 		e.stopPropagation();
-		this.props.submitTutorial()
+		this.props.submitTraining()
 	}
 	closeModel() {
 		this
@@ -56,7 +56,7 @@ class submitTraining extends React.Component {
 			.validateFieldsAndScroll((err, values) => {
 				if (!err) {
 					console.log('Received values of form: ', values);
-					this.props.submitCourses(values);
+					this.props.submitTraining(values);
 				}
 			});
 	}

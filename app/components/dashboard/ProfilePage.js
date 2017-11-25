@@ -31,7 +31,7 @@ class ProfilePage extends Component {
          <div className="main-content border col-sm-8">
           <Tabs defaultActiveKey="1" onChange={this.callback}>
            <TabPane tab="Submitted Trainings" key="1">
-                  <TrainingContainer />
+             <TrainingContainer />
            </TabPane>
            <TabPane tab="Saved Courses" key="2">
            
@@ -67,7 +67,9 @@ const mapStateToProps = (state, ownProps) => {
  return {
   user: state
    .auth
-   .get('user')
+   .get('user'),
+   training: state.training
+   
  }
 }
 const mapDispatchToProps = dispatch => ({

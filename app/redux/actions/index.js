@@ -43,6 +43,7 @@ import {
 	USER_UPDATE_REGISTRATION_GUEST_DATA,
 	USER_UPDATE_REGISTRATION_FIELD,
 	TRAINING_LOAD, TRAINING_LOAD_SUCCESS, 
+	FETCH_TRAINING_SUCCESS,
 	SELECTED_TRAINING_SUCCESS, SUBMIT_TRAINING_SUCCESS,
 	SUBMIT_NEW_TRAINING_MODEL_OPEN,SUBMIT_NEW_TRAINING_MODEL_CLOSE
 } from 'app/redux/constants';
@@ -129,6 +130,30 @@ export function submitTraining(data){
 			});
 	}
 }
+export function fetchTrainingSuccess(data){
+	return {
+		type: 'TRAINING_LOAD_SUCCESS',
+		payload: {
+			data: data
+		}
+	}
+}
+export function fetchTraining(){
+	return dispatch => {
+		return axios
+			.get(API.url('submitTraining'))
+			.then((response) => {
+				let json = response.data;
+				console.log(json);
+				message.info('Training has been fetched successfully', 3);
+				dispatch(fetchTrainingSuccess(json.trainings));
+			})
+			.catch((error) => {
+			});
+	}
+}
+
+
 
 export function submitTrainingModel(){
 	  return { type : SUBMIT_NEW_TRAINING_MODEL_OPEN}
