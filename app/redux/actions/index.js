@@ -42,7 +42,11 @@ import {
 	USER_CREATE_REGISTRATION,
 	USER_UPDATE_REGISTRATION_GUEST_DATA,
 	USER_UPDATE_REGISTRATION_FIELD,
+	TRAINING_LOAD, TRAINING_LOAD_SUCCESS, 
+	SELECTED_TRAINING_SUCCESS, SUBMIT_TRAINING_SUCCESS,
+	SUBMIT_NEW_TRAINING_MODEL_OPEN,SUBMIT_NEW_TRAINING_MODEL_CLOSE
 } from 'app/redux/constants';
+
 
 import axios from 'axios';
 import * as API from 'app/api';
@@ -105,7 +109,35 @@ export function submitTutorialModel(){
 export function submitTutorialModelClose(){
 	return { type : SUBMIT_NEW_TUTS_MODEL_CLOSE}
 }
+//----------------------------------------------------------------//
 
+export function submitTrainingSuccess(){
+	return {
+		type: 'SUBMIT_TRAINING_SUCCESS'
+	}
+}
+export function submitTraining(data){
+	return dispatch => {
+		return axios
+			.post(API.url('submitTraining'),data)
+			.then((response) => {
+				let json = response.data;
+				message.info('Training has been added successfully', 3);
+				dispatch(submitTrainingSuccess());
+			})
+			.catch((error) => {
+			});
+	}
+}
+
+export function submitTrainingModel(){
+	  return { type : SUBMIT_NEW_TRAINING_MODEL_OPEN}
+}
+export function submitTrainingModelClose(){
+	return { type : SUBMIT_NEW_TRAINING_MODEL_CLOSE}
+}
+
+//----------------------------------------------------------------//
 export function fetchProfileSuccess(data) {
 	return {
 		type: 'FETCH_PROFILE_SUCCESS',

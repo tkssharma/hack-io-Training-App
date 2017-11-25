@@ -12,12 +12,14 @@ import app from './App';
 import {
     routerReducer
 } from 'react-router-redux';
+import training from './Training';
 
 const GenNextApp = combineReducers({
     auth,
     user,
     ui,
     app,
+    training,
     course,
     routing: routerReducer,
 });

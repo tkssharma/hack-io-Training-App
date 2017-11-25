@@ -12482,9 +12482,9 @@ footer .social-links li a i {
 }
 
 .tutorial--tut-title .tut-icon {
-    min-width: 100px;
+    min-width: 80px;
     min-height: 100px;
-    width: 100px;
+    width: 80px;
     height: 100px;
     display: table;
     border: none;

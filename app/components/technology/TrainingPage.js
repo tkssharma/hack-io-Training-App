@@ -4,28 +4,50 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import * as Action from 'app/redux/actions';
+import Model from './submitTrainingModel';
 
 const mapStateToProps = (state, ownProps) => {
   return {
     user: state
       .auth
       .get('user'),
-    course: state.course
+    training: state.training
   }
 }
 const mapDispatchToProps = dispatch => ({
-  // loadCourses: () => dispatch(Action.courseLoad())
+    openTrainingModel: () => dispatch(Action.submitTrainingModel()),
+    submitTrainingModelClose : () => dispatch(Action.submitTrainingModelClose())
 });
 
 
 class LearningTraining extends Component {
   constructor(props) {
     super(props);
+    this.openTraining = this.openTraining.bind(this);
+    this.submitTrainingModelClose = this.submitTrainingModelClose.bind(this);
+    
+  }
+  openTraining(e){
+    e.preventDefault();
+    this.props.openTrainingModel();
+  }
+  submitTrainingModelClose(){
+      this.props.submitTrainingModelClose()
   }
 
   render() {
-    return (<div className="learning-wrapper">
+    return (
+       <div> 
+        {(this.props.training && this.props.training.trainingModel)
+          ? (<Model closeModel={this.submitTrainingModelClose} open={true}/>)
+        : (<Model closeModel={this.submitTrainingModelClose} open={false}/>)}
+
+
+    <div className="learning-wrapper">
       <div className="page--section-header tutorial--tut-title">
+       
+       
+       
         <div className="container alt">
           <div className="row">
             <div className="col-xs-12">
@@ -33,9 +55,9 @@ class LearningTraining extends Component {
                 className="page--section-heading tut-section-heading fx wrap-mob fx-wrap fx--ai-fs fx--jc-fs">
                 <div className="category-header-wrapper-mobile">
                   <div className="category-header">
-                    <img className="tut-icon" src={this.props.user.get('avatar')} ></img>
+                    <img className="tut-icon" src="https://cdn.geekwire.com/wp-content/uploads/2015/01/code-fellows-logo-shield-266x300.png" ></img>
                     <div className="tut-info">
-                      <h1 className="tut-title">My Published Trainings</h1>
+                      <h1 className="tut-title">All Published Trainings</h1>
                       <div className="tut-description hidden-xs">
                         <p className="page--section-subheading">Learn front end development online from the best trainers</p>
                         <div className="share-hackr">
@@ -113,7 +135,7 @@ class LearningTraining extends Component {
                         <div className="tut-list tut-row">
                             <div className="tut-list-primary">
                                 <div className="tut-vote">
-                                <img class="tut-icon" src="http://pbs.twimg.com/profile_images/745934492553084933/bOysDVFn_normal.jpg"/>
+                                <img className="tut-icon" src="http://pbs.twimg.com/profile_images/745934492553084933/bOysDVFn_normal.jpg"/>
                                 </div>
                                 <div className="tut-title">
                                     <div className="title">
@@ -165,7 +187,7 @@ class LearningTraining extends Component {
                         <div className="tut-list tut-row">
                             <div className="tut-list-primary">
                                 <div className="tut-vote">
-                                    <img class="tut-icon" src="http://pbs.twimg.com/profile_images/745934492553084933/bOysDVFn_normal.jpg"/>
+                                    <img className="tut-icon" src="http://pbs.twimg.com/profile_images/745934492553084933/bOysDVFn_normal.jpg"/>
                                 </div>
                                 <div className="tut-title">
                                     <div className="title">
@@ -233,8 +255,7 @@ class LearningTraining extends Component {
                             <div className="panel-body">
                                 <ul className="flex-list list-unstyled">
                                     <li>
-                                        <a rel="nofollow" href="https://www.facebook.com/sharer/sharer.php?u=https://hackr.io/tarun-sharma"
-                                            target="_blank" className="btn full_width add-training">
+                                        <a href="" onClick={this.openTraining}  className="btn full_width add-training">
                                             Add Training
                                           
                                         </a>
@@ -259,6 +280,7 @@ class LearningTraining extends Component {
     </div>
 </div>
 
+    </div>
     </div>
     );
   }

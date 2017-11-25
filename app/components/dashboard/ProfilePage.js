@@ -6,6 +6,7 @@ import ProfileHeader from './profile/ProfileHeader';
 import SocialBox from './profile/SocialBox';
 import {Tabs} from 'antd';
 import VideoList from '../home/VideoList';
+import TrainingContainer from '../common/trainingContainer';
 
 const TabPane = Tabs.TabPane;
 class ProfilePage extends Component {
@@ -29,8 +30,12 @@ class ProfilePage extends Component {
 
          <div className="main-content border col-sm-8">
           <Tabs defaultActiveKey="1" onChange={this.callback}>
-           <TabPane tab="Submitted Courses" key="1">Content of Tab Pane 1</TabPane>
-           <TabPane tab="Saved Courses" key="2">Content of Tab Pane 2</TabPane>
+           <TabPane tab="Submitted Trainings" key="1">
+                  <TrainingContainer />
+           </TabPane>
+           <TabPane tab="Saved Courses" key="2">
+           
+           </TabPane>
            <TabPane tab="Liked Videos" key="3">Content of Tab Pane 3</TabPane>
           </Tabs>
          </div>
