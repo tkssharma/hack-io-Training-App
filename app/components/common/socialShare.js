@@ -1,7 +1,7 @@
 
-import react from 'react'
+import React from 'react'
 
-const  socialShare = () => {
+const  socialShare = (props) => {
     return (
         <div className="sidebar-content profile-sidebar col-sm-4">
         <div className="panel intro-panel">
@@ -13,7 +13,7 @@ const  socialShare = () => {
             <div className="panel-body">
                 <ul className="flex-list list-unstyled">
                     <li>
-                        <a href="" onClick={this.openTraining} className="btn full_width add-training">
+                        <a href="" onClick={props.openTraining} className="btn full_width add-training">
                             Add Training
 
         </a>

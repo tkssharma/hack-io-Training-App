@@ -7871,7 +7871,6 @@ ul.messenger-theme-flat .messenger-message-slot.messenger-first .messenger-messa
 .intro-panel .panel-heading {
     font-size: 14px;
     font-weight: 700;
-    text-transform: uppercase
 }
 
 .intro-panel .panel-heading .txt {
@@ -10025,7 +10024,7 @@ input[type=date],input[type=email],input[type=number],input[type=password],input
 }
 
 .flex-container .main-content {
-    background: #fff
+   
 }
 
 .flex-container .main-content.border {
