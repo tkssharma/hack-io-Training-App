@@ -116,7 +116,7 @@ class LearningTraining extends Component {
                         </div>
                     </div>
                     <div className="page--section-body tutorial--tut-list">
-                    {this.props.training ? ( <TrainingContainer openTraining={this.openTraining} data = {this.props.training.trainingData} />) : <div /> }   
+                    { (this.props.training && this.props.training.trainingData) ? ( <TrainingContainer openTraining={this.openTraining} data = {this.props.training.trainingData} />) : <div /> }   
                     </div>
                 </div>
             </div>

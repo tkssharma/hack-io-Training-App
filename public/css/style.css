@@ -7872,7 +7872,10 @@ ul.messenger-theme-flat .messenger-message-slot.messenger-first .messenger-messa
     font-size: 14px;
     font-weight: 700;
 }
-
+.tut-icon{
+    width: 100px;
+    height:50px;
+}
 .intro-panel .panel-heading .txt {
     display: block;
     padding-bottom: 6px;

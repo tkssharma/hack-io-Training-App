@@ -8,6 +8,8 @@ import {Tabs} from 'antd';
 import VideoList from '../home/VideoList';
 import TrainingContainer from '../common/trainingContainer';
 
+import * as Action from 'app/redux/actions';
+
 const TabPane = Tabs.TabPane;
 class ProfilePage extends Component {
  constructor(props) {
@@ -17,6 +19,9 @@ class ProfilePage extends Component {
  }
  callback(key) {
   console.log(key);
+}
+componentWillMount(){
+  this.props.fetchTraining();
 }
  render() {
   return (
@@ -31,7 +36,7 @@ class ProfilePage extends Component {
          <div className="main-content border col-sm-8">
           <Tabs defaultActiveKey="1" onChange={this.callback}>
            <TabPane tab="Submitted Trainings" key="1">
-             <TrainingContainer />
+           { (this.props.training && this.props.training.trainingData) ? ( <TrainingContainer  data = {this.props.training.trainingData} />) : <div /> }   
            </TabPane>
            <TabPane tab="Saved Courses" key="2">
            
@@ -41,6 +46,7 @@ class ProfilePage extends Component {
          </div>
 
          <div className="sidebar-content profile-sidebar col-sm-4">
+
          <SocialBox />
          </div>
         </div>
@@ -73,6 +79,7 @@ const mapStateToProps = (state, ownProps) => {
  }
 }
 const mapDispatchToProps = dispatch => ({
+  fetchTraining: () => dispatch(Action.fetchTraining('user')),  
  // fetchProfile: () => dispatch(Action.fetchProfile()),
 });
 

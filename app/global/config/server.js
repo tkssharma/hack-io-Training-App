@@ -10,6 +10,7 @@ export default {
 	fetchSelectedCourse : 'course/fetch',
 	reset_password: 'auth/reset-password',
 	userfetch : 'user/fetch',
+	getAllTraining : 'training',
 	submitTraining :'training',
 	getTrainingByUser :'training/user',
 	courseFetch : 'course',
