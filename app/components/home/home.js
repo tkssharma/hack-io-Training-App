@@ -43,6 +43,7 @@ class Home extends Component {
                   width: '100%',
                   height:100
                 }}
+                
                   dataSource={courseListArray}
                   placeholder="Enter course name to search"
                   filterOption={(inputValue, option) => option.props.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1}>
