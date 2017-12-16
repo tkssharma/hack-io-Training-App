@@ -12055,8 +12055,8 @@ footer .social-links li a i {
     }
 }
 
-.home--hero-header .hero-header {
-    font-size: 26px;
+.home--hero-header .hero-header-title {
+    font-size: 40px;
     font-weight: 500;
     line-height: 1.2;
     margin-bottom: 30px;
@@ -12064,8 +12064,11 @@ footer .social-links li a i {
 }
 
 @media (max-width: 767px) {
-    .home--hero-header .hero-header {
-        font-size:21px
+    .home--hero-header .hero-header-title {
+        font-size:40px
+    }
+    .home--hero-header .hero-header-subtitle {
+        font-size:25px
     }
 }
 
