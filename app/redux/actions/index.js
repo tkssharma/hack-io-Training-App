@@ -78,6 +78,7 @@ export function openSelectedCourseTutorials(key) {
 				hashHistory.push(routes.learning_tutorials);
 			})
 			.catch((error) => {
+				message.info('unable to load course tutorials', 3);				
 			});
 	}
 }

@@ -4,15 +4,64 @@ import routes from 'app/redux/constants/Routes';
 import Searchbar from './Searchbar';
 import courseListArray from '../dashboard/CourseList';
 import {Icon, Button, Input, AutoComplete} from 'antd';
+import {connect} from 'react-redux';
+import {Link} from 'react-router';
+import {bindActionCreators} from 'redux';
+import * as Action from 'app/redux/actions';
+const Option = AutoComplete.Option;
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    user: state
+      .auth
+      .get('user'),
+    course: state.course
+  }
+}
+const mapDispatchToProps = dispatch => ({
+  loadCourses: () => dispatch(Action.courseLoad()),
+  openSelectedCourseTutorials: (key) => dispatch(Action.openSelectedCourseTutorials(key))
+});
+
+function renderOption(item) {
+  return (
+    <Option key={item.name} text={item.name}>
+      {item.name} 
+    </Option>
+  );
+}
+function searchResult(query) {
+  console.log(query);
+  return courseListArray.filter((item)=> {
+      return item.name.toLowerCase().match(query.toLowerCase())
+  })
+}
 
 class Home extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      dataSource: courseListArray
+    }
+    this.onSelect = this
+      .onSelect
+      .bind(this);
+   this.handleSearch = this.handleSearch.bind(this);   
+
   }
-
+  handleSearch = (value) => {
+    this.setState({
+      dataSource: value ? searchResult(value) : courseListArray,
+    });
+  }
+  onSelect(value) {
+    console.log('onSelect', value);
+    this
+      .props
+      .openSelectedCourseTutorials(value);
+  }
   render() {
-
     return (
       <div className="home--hero-header">
         <div className="container">
@@ -29,7 +78,6 @@ class Home extends Component {
               </h1>
               <h2 className="hero-header-subtitle">Level up your programming skills today with
                 condensed video lessons on industry leading web frameworks and tools!
-
               </h2>
               <div
                 className="global-search-wrapper"
@@ -40,13 +88,12 @@ class Home extends Component {
                   className="global-search"
                   size="large"
                   style={{
-                  width: '100%',
-                  height:100
+                  width: '100%'
                 }}
-                
-                  dataSource={courseListArray}
+                  dataSource={this.state.dataSource.map(renderOption)}
+                  onSelect={this.onSelect}
                   placeholder="Enter course name to search"
-                  filterOption={(inputValue, option) => option.props.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1}>
+                  onSearch={this.handleSearch}>
                   <Input
                     suffix={(
                     <Button className="search-btn" size="large" type="primary">
@@ -65,4 +112,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -40,6 +40,7 @@ class DashBoardComponent extends React.Component {
       this.openCourseData = this
       .openCourseData
       .bind(this);
+      this.filterChange = this.filterChange.bind(this);
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.value !== this.props.value) {
@@ -90,7 +91,7 @@ class DashBoardComponent extends React.Component {
                     </a>
                   </div>
                   <h1 className="hero-header">Search Best programming tutorials</h1>
-                  <Searchbar filterCourses={this.filterCourses}/>
+                  <Searchbar   filterCourses={this.filterCourses}/>
                 </div>
                 <div className="clearfix"></div>
               </div>
