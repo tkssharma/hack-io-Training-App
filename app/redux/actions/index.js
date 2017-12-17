@@ -59,11 +59,12 @@ import { hashHistory } from 'react-router';
 
 import routes from 'app/redux/constants/Routes';
 
-export function openSelectedCourseTutorialsSuccess(data) {
+export function openSelectedCourseTutorialsSuccess(data,key) {
 	return {
 		type: 'SELECTED_COURSE_TUTS_SUCCESS',
 		payload: {
-			data: data
+			data: data,
+			key : key
 		}
 	}
 }
@@ -72,9 +73,10 @@ export function openSelectedCourseTutorials(key) {
 		return axios
 			.get(API.url('fetchSelectedCourse') + "/" + key)
 			.then((response) => {
-				let json = response.data;
+				let json = response.data ? response.data.courses : [];
+
 				message.info('Course has been added successfully', 3);
-				dispatch(openSelectedCourseTutorialsSuccess(json));
+				dispatch(openSelectedCourseTutorialsSuccess(json,key));
 				hashHistory.push(routes.learning_tutorials);
 			})
 			.catch((error) => {

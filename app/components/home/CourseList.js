@@ -3,7 +3,7 @@ import  CourseListItem from './CourseListItem';
 
 const CourseList = props => {
   const list = props.courseData.map(function(_course){
-    return (<CourseListItem openCourse={props.openCourseData} data={_course} key={_course} />)
+    return (<CourseListItem openCourse={props.openCourseData} data={_course} key={_course.name} />)
   })
   return (
    <div className="row">

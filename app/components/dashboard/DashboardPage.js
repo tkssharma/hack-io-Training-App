@@ -40,7 +40,7 @@ class DashBoardComponent extends React.Component {
       this.openCourseData = this
       .openCourseData
       .bind(this);
-      this.filterChange = this.filterChange.bind(this);
+     // this.filterChange = this.filterChange.bind(this);
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.value !== this.props.value) {
@@ -67,7 +67,7 @@ class DashBoardComponent extends React.Component {
     if (searchString.length > 0) {
       // We are searching. Filter the results.
       filteredCourseList = courseListArray.filter(function (l) {
-        return l
+        return l.name
           .toLowerCase()
           .match(searchString);
       });

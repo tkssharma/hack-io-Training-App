@@ -72,13 +72,13 @@ class CommonHeader extends React.Component {
   handleChange(val) {
     console.log('Selected: ', val);
     this.setState({selectedTech : val});
-    this.props.handleTechnologyChange(val);
+    //this.props.handleTechnologyChange(val);
   }
 
   render() {
     // populating react-select field with values
     const options = courseListArray.map(function(_tech){
-      return { value : _tech, label : _tech }
+      return { value : _tech.name, label : _tech.name }
     })
 
     let _loggedIn = (

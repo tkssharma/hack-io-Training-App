@@ -8,6 +8,7 @@ const COURSE_default_data = {
 	courseData: [],
 	loaded: false,
 	tutorialModel: false,
+	searchKey : '',
 	selectedCourseTutorials : []
 }
 function loadCourse(course = COURSE_default_data, action) {
@@ -41,7 +42,7 @@ function loadCourse(course = COURSE_default_data, action) {
 	}
 	else if (action.type === SELECTED_COURSE_TUTS_SUCCESS) {
 		return {
-			...course , selectedCourseTutorials : action.payload.data
+			...course, selectedCourseTutorials : action.payload.data, searchKey : action.payload.key
 		}
 	}
 	else {

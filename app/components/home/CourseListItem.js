@@ -7,7 +7,7 @@ const courseListItem = (props) => {
    <div className="topic-grid-item js-topic-grid-item">
     <a>
      <div>
-     <a href="" onClick={(e) => props.openCourse(props.data,e)}  rel="noopener noreferrer">{props.data}</a>
+     <a href="" onClick={(e) => props.openCourse(props.data.name,e)}  rel="noopener noreferrer">{props.data.name}</a>
      </div>
     </a>
    </div>

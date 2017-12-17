@@ -1,19 +1,19 @@
 const courseList = [
     {
         "name": "React",
-        "icon": "",
-        "description": ""
+        "icon": "public/img/03.png",
+        "description": "In computing, React is a JavaScript library for building user interfaces. It is maintained by Facebook, Instagram and a community of individual developers and corporations"
     }, {
         "name": "Redux",
-        "icon": "",
-        "description": ""
+        "icon": "public/img/03.png",
+        "description": "In computing, React is a JavaScript library for building user interfaces. It is maintained by Facebook, Instagram and a community of individual developers and corporations"
     }, {
         "name": "vue js",
-        "icon": "",
+        "icon": "public/img/01.png",
         "description": ""
     }, {
         "name": "AWS",
-        "icon": "",
+        "icon": "public/img/01.png",
         "description": ""
     }, {
         "name": "Devops",
@@ -69,8 +69,8 @@ const courseList = [
         "description": ""
     }, {
         "name": "Angular",
-        "icon": "",
-        "description": ""
+        "icon": "public/img/09.png",
+        "description": "AngularJS is a JavaScript-based open-source front-end web application framework mainly maintained by Google and by a community of individuals and corporations to address many of the challenges encountered in developing single-page applications"
     }, {
         "name": "Webpack",
         "icon": "",
@@ -85,7 +85,7 @@ const courseList = [
         "description": ""
     }, {
         "name": "Angular 2",
-        "icon": "",
+        "icon": "public/img/01.png",
         "description": ""
     }
 ];
