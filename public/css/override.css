@@ -1618,3 +1618,20 @@ background-size: cover;
     font-size: 16px;
     height: 50px !important;
 }
+.topic-thumbnail{
+    width: 50px;
+    height: 45px;
+    margin-right: 30px;
+}
+a:active, a:focus {
+    border-bottom-color: transparent;
+    outline: 0!important;
+}
+
+a:active, a:focus, a:hover {
+    text-decoration: none;
+    color: #494f9c;
+}
+a:hover {
+    border-bottom: 1px solid #fafafa !important;
+}
