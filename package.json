@@ -12,6 +12,9 @@
     "start-local": "webpack-dev-server --config ./webpack.config.js  --hot --inline --progress",
     "start": "node server.js"
   },
+  "engines": {
+    "node": "8.0.0"
+  },
   "author": "TarunSharma",
   "license": "MIT",
   "devDependencies": {
