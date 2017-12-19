@@ -9,7 +9,7 @@ const courseList = [
         "description": "In computing, React is a JavaScript library for building user interfaces. It is maintained by Facebook, Instagram and a community of individual developers and corporations"
     }, {
         "name": "vue js",
-        "icon": "public/img/01.png",
+        "icon": "public/img/11.png",
         "description": ""
     }, {
         "name": "AWS",
@@ -17,7 +17,7 @@ const courseList = [
         "description": ""
     }, {
         "name": "Devops",
-        "icon": "",
+        "icon": "public/img/01.png",
         "description": ""
     }, {
         "name": "C programming",
@@ -33,7 +33,7 @@ const courseList = [
         "description": ""
     }, {
         "name": "Express node js",
-        "icon": "",
+        "icon": "public/img/10.png",
         "description": ""
     }, {
         "name": "Graph QL",
@@ -53,7 +53,7 @@ const courseList = [
         "description": ""
     }, {
         "name": "React Native",
-        "icon": "",
+        "icon": "public/img/03.png",
         "description": ""
     }, {
         "name": "Jenkins",
@@ -65,7 +65,7 @@ const courseList = [
         "description": ""
     }, {
         "name": "Node JS",
-        "icon": "",
+        "icon": "public/img/10.png",
         "description": ""
     }, {
         "name": "Angular",
@@ -81,7 +81,7 @@ const courseList = [
         "description": ""
     }, {
         "name": "Javascript",
-        "icon": "",
+        "icon": "public/img/es6.png",
         "description": ""
     }, {
         "name": "Angular 2",

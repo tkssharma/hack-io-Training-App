@@ -9,8 +9,7 @@ import courseListArray from '../dashboard/CourseList';
 import { hashHistory } from 'react-router';
 import routes from 'app/redux/constants/Routes';
 import TutorialHeader from './common/tutorialPageHeader';
-import TutorialContainer from './common/tutorialPageContriner';
-
+import {AppLoader} from '../home/AppLoader';
 import { message, notification } from 'antd';
 
 const mapStateToProps = (state, ownProps) => {
@@ -65,6 +64,9 @@ class LearningTutorial extends Component {
 
     return (
       <div className="learning-wrapper">
+         {(selectedCourseTutorials && selectedCourseTutorials.length > 0)
+          ? (<AppLoader loaded={true} />)
+          : (<AppLoader loaded={false} />)}
         <div className="page--section-header tutorial--tut-title">
           <div className="container alt">
             <div className="row">

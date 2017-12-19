@@ -7,6 +7,7 @@ import * as Action from 'app/redux/actions';
 import Model from './submitTrainingModel';
 import socialShare from '../common/socialShare';
 import TrainingContainer from '../common/trainingContainer';
+import {AppLoader} from '../home/AppLoader';
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -48,6 +49,10 @@ class LearningTraining extends Component {
                 {(this.props.training && this.props.training.trainingModel)
                     ? (<Model submitTraining={this.props.submitTraining} closeModel={this.submitTrainingModelClose} open={true} />)
                     : (<Model submitTraining={this.props.submitTraining} closeModel={this.submitTrainingModelClose} open={false} />)}
+
+                    {(this.props.training.trainingData && this.props.training.trainingData)
+                      ? (<AppLoader loaded={true} />)
+                     : (<AppLoader loaded={false} />)}
 
                 <div className="learning-wrapper">
                     <div className="page--section-header tutorial--tut-title">
