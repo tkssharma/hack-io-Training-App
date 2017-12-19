@@ -5,6 +5,7 @@ import {render} from 'react-dom';
 import asyncComponent from './AsyncComponent'
 import '../public/css/style.css';
 import '../public/css/override.css';
+import '../public/css/header.css';
 import '../public/css/react-select.css';
 
 import {
