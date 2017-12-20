@@ -10,6 +10,8 @@ import {bindActionCreators} from 'redux';
 import * as Action from 'app/redux/actions';
 const Option = AutoComplete.Option;
 import {DefaultPlayer as Video} from 'react-html5video';
+import { hashHistory } from 'react-router';
+
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -65,9 +67,9 @@ class Home extends Component {
   }
   onSelect(value) {
     console.log('onSelect', value);
-    this
-      .props
-      .openSelectedCourseTutorials(value);
+   // this.props.openSelectedCourseTutorials(value);
+   hashHistory.push(routes.learning_tutorials+'/'+value);
+   
   }
   render() {
     return (

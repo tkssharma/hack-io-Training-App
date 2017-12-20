@@ -6,22 +6,25 @@ import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import * as Action from 'app/redux/actions';
 import courseListArray from '../dashboard/CourseList';
-import { hashHistory } from 'react-router';
 import routes from 'app/redux/constants/Routes';
 import TutorialHeader from './common/tutorialPageHeader';
 import {AppLoader} from '../home/AppLoader';
 import { message, notification } from 'antd';
+import { hashHistory } from 'react-router';
+import TutorialContainer from './common/tutorialPageContriner';
 
 const mapStateToProps = (state, ownProps) => {
   return {
       user: state
           .auth
           .get('user'),
-          course: state.course
+      course: state.course
     }
 }
 const mapDispatchToProps = dispatch => ({
   //openTrainingModel: () => dispatch(Action.submitTrainingModel())
+  openSelectedCourseTutorials: (key) => dispatch(Action.openSelectedCourseTutorials(key))
+  
 });
 
 
@@ -29,44 +32,32 @@ class LearningTutorial extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      title : '',
-      icon : '',
-      description : ''
-    }
   }
-
-  componentDidMount(){
-      // if no course selected data not there back to dashboard page  
-      if((this.props.course && this.props.course.selectedCourseTutorials)){
-           // we have data to proceed 
-           if(this.props.course.selectedCourseTutorials.length === 0){
-            message.info('No tutorial found', 3);
-           // hashHistory.push(routes.user_dashboard);
-           }
-      } 
-      if(this.props.course && this.props.course.searchKey){
-        // we have data to proceed 
-        courseListArray.map((item)=>{
-          if((item.name.toLowerCase()) === (this.props.course.searchKey.toLowerCase())){
-            this.setState({
-              title : item.name,
-              icon : item.icon,
-              description : item.description
-            })
-          }
-        })
-   } 
+  componentWillMount() {
+    const name = this.props.params.name;
+    this.props.openSelectedCourseTutorials(name);
   }
 
   render() {
-    let {selectedCourseTutorials, searchKey } = this.props.course;
+
+    let {selectedCourseTutorials, searchKey,loaded } = this.props.course;
+    let obj = {};
+
+    if((this.props.course && searchKey)){
+      courseListArray.map((item)=>{
+       if((item.name.toLowerCase()) === (searchKey.toLowerCase())){
+         obj = {
+           title : item.name,
+           icon : item.icon,
+           description : item.description,
+           loaded : true
+         };
+       }
+     })         
+   }
 
     return (
       <div className="learning-wrapper">
-         {(selectedCourseTutorials && selectedCourseTutorials.length > 0)
-          ? (<AppLoader loaded={true} />)
-          : (<AppLoader loaded={false} />)}
         <div className="page--section-header tutorial--tut-title">
           <div className="container alt">
             <div className="row">
@@ -74,7 +65,7 @@ class LearningTutorial extends Component {
                 <div
                   className="page--section-heading tut-section-heading fx wrap-mob fx-wrap fx--ai-fs fx--jc-fs">
                   <div className="category-header-wrapper-mobile">
-                   <TutorialHeader data={this.state} />
+                   <TutorialHeader data={obj} />
                   </div>
                 </div>
               </div>
@@ -105,7 +96,8 @@ class LearningTutorial extends Component {
                               data-sort="recent">Recent</button>
                           </div>
                         </div>
-                        { selectedCourseTutorials.length > 0  ? ( <TutorialContainer  data={selectedCourseTutorials}/>) : ( <div/>)} 
+                        <AppLoader  loaded={loaded}/>
+                        { selectedCourseTutorials.length > 0  ? ( <TutorialContainer  data={selectedCourseTutorials}/>) : ( <div className="dataNotFound">No Training data found for {this.props.params.name}  </div>)} 
                       </div>
                     </div>
                   </div>

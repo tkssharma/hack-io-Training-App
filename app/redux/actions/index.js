@@ -35,7 +35,8 @@ import {
 	COURSE_LOAD_SUCCESS,
 	SUBMIT_COURSE_SUCCESS,
 	SELECTED_COURSE_TUTS_SUCCESS,
-
+	INITIATE_LOADING,
+	STOP_LOADING,
 	SUBMIT_NEW_TUTS_MODEL_OPEN,
 	SUBMIT_NEW_TUTS_MODEL_CLOSE,
 	USER_CREATE_REGISTRATION_MANY,
@@ -68,19 +69,31 @@ export function openSelectedCourseTutorialsSuccess(data,key) {
 		}
 	}
 }
+export function stopLoading(){
+	return {
+		type: 'STOP_LOADING'
+	}
+}
+export function initiateLoading(){
+	return {
+		type: 'INITIATE_LOADING'
+	}
+}
 export function openSelectedCourseTutorials(key) {
+	
 	return dispatch => {
+		dispatch(initiateLoading());		
 		return axios
 			.get(API.url('fetchSelectedCourse') + "/" + key)
 			.then((response) => {
 				let json = response.data ? response.data.courses : [];
 
-				message.info('Course has been added successfully', 3);
+				message.info('Courses has been loaded..', 3);
 				dispatch(openSelectedCourseTutorialsSuccess(json,key));
-				hashHistory.push(routes.learning_tutorials);
 			})
 			.catch((error) => {
-				message.info('unable to load course tutorials', 3);				
+				message.info('unable to load course tutorials', 3);	
+				dispatch(stopLoading());		
 			});
 	}
 }
@@ -262,7 +275,8 @@ export function authServerRegisterUser(data) {
 			} else {
 				dispatch(authResetRegisterFormFields());
 				message.info('Account successfully created. You can login now.', 3);
-				browserHistory.push(routes.user_login);
+				hashHistory.push(routes.learning_tutorials);
+				
 			}
 
 		}).catch((error) => {
@@ -330,7 +344,6 @@ export function authServerLoginUser(data) {
 				Auth.setAccessToken(json.token);
 				API.setAuthToken(json.token);
 				dispatch(authUpdateUserData(jwt.decode(json.token)));
-				//router.push('/user/dashboard')
 				hashHistory.push(routes.user_dashboard);
 			}
 

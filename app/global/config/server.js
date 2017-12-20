@@ -1,7 +1,8 @@
 'use strict';
 
 export default {
-	url: 'https://ngtrainingapi.herokuapp.com/',
+	//url: 'http://localhost:2234/',
+	url: 'https://ngtrainingapi.herokuapp.com/',	
 	register: 'auth/register',
 	adminMenu : 'users/api/menu',
 	login: 'auth/login',

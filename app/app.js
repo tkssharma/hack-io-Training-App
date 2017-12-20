@@ -94,7 +94,7 @@ render((
 				<IndexRoute component={TrainingComponent}/>
 				<Route path="training" component={TrainingComponent}/>
 				<Route path="videos" component={LearningVideoComponent}/>
-				<Route path="tutorial" component={TutorialComponent}/>
+				<Route path="tutorial/:name" component={TutorialComponent}/>
 			</Route>
 
 		</Router>
