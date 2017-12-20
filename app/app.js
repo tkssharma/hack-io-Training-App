@@ -50,13 +50,17 @@ import PublicLayout from 'app/components/layout/Public';
 import PublicIndexPage from 'app/components/home/index';
 //--------------------Dashboard------------------//
 import DefaultLayout from 'app/components/layout/Default';
+import AboutUsPage from 'app/components/common/aboutUs';
+
 
 render((
 	<Provider store={store}>
 		<Router history={hashHistory}>
-
 			<Route path="/" component={PublicLayout}>
 				<IndexRoute component={PublicIndexPage}/>
+				<Route path="aboutus" component={AboutUsPage}/>
+				<Route path="latest" component={LearningVideoComponent}/>
+
 			</Route>
 
 			<Route path="auth" component={AuthLayout}>

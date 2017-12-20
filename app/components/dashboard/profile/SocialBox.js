@@ -16,7 +16,7 @@ const socialBox = function (props) {
      <li>
       <a
        rel="nofollow"
-       href="https://www.facebook.com/sharer/sharer.php?u=https://hackr.io/tarun-sharma"
+       href="https://www.facebook.com/sharer/sharer.php?u=https://nextio.io/tarun-sharma"
        target="_blank"
        className="btn full_width btn_facebook">
        <i className="fa fa-facebook"></i>
@@ -25,7 +25,7 @@ const socialBox = function (props) {
      <li>
       <a
        rel="nofollow"
-       href="https://twitter.com/home?status=Tarun's recommendations of the best online programming courses: https://hackr.io/tarun-sharma"
+       href="https://twitter.com/home?status=Tarun's recommendations of the best online programming courses: https://nextio.io/tarun-sharma"
        target="_blank"
        className="btn full_width btn_twitter">
        <i className="fa fa-twitter"></i>

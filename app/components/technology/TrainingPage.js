@@ -69,7 +69,7 @@ class LearningTraining extends Component {
                                                     <h1 className="tut-title">All Published Trainings</h1>
                                                     <div className="tut-description hidden-xs">
                                                         <p className="page--section-subheading">Learn front end development online from the best trainers</p>
-                                                        <div className="share-hackr">
+                                                        <div className="share-nextio">
                                                             <a
                                                                 className="share-btn no-count  share-facebook js-social-share-btn"
                                                                 data-social="Facebook">
@@ -95,7 +95,7 @@ class LearningTraining extends Component {
                                             <div className="tut-description visible-xs">
                                                 <p className="page--section-subheading">Learn HTML5 online from the best HTML
                                                   tutorials submitted &amp; voted by the programming community.</p>
-                                                <div className="share-hackr">
+                                                <div className="share-nextio">
                                                     <a data-social="Facebook">
                                                         <i className="icon ion-social-facebook"></i>
                                                         <span className="txt">Share</span>

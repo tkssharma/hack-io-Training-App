@@ -12442,34 +12442,34 @@ footer .social-links li a i {
     text-align: left;
     font-weight: 400;
 }
-.share-hackr .share-btn.no-count .txt {
+.share-nextio .share-btn.no-count .txt {
     padding: 3px 7px 3px 2px;
 }
 
-.share-hackr .share-btn .icon {
+.share-nextio .share-btn .icon {
     padding: 3px 8px;
     transform: scale(1.5);
 }
-.share-hackr .share-btn:first-child {
+.share-nextio .share-btn:first-child {
     margin-left: 0;
 }
-.share-hackr .share-linkedin {
+.share-nextio .share-linkedin {
     border-color: #0077b5;
     background: #0077b5;
     color: #fff;
 }
-.share-hackr {
+.share-nextio {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     margin-top: 15px;
 }
-.share-hackr .share-facebook {
+.share-nextio .share-facebook {
     border-color: #3b5998;
     background: #3b5998;
     color: #fff;
 }
-.share-hackr .share-btn {
+.share-nextio .share-btn {
     display: flex;
     border: 1px solid transparent;
     border-radius: 3px;
@@ -12480,7 +12480,7 @@ footer .social-links li a i {
     padding: 3px 7px;
     margin-bottom: 10px;
 }
-.share-hackr .share-twitter {
+.share-nextio .share-twitter {
     border-color: #1da1f2;
     background: #1da1f2;
     color: #fff;

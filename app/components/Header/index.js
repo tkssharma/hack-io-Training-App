@@ -143,7 +143,7 @@ class CommonHeader extends React.Component {
               </div>
               <a className="navbar-brand" href="">
                 <img
-                  className="hackr-logo-text-path hidden-xs"
+                  className="nextio-logo-text-path hidden-xs"
                   src="https://s3.amazonaws.com/codementor_content/2016-Jun/code_fellows.png"/>
               </a>
             </div>

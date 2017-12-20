@@ -14,7 +14,7 @@ const profileHeader = function (props) {
                     Tutorials and Courses</h1>
                 <div className="tut-description hidden-xs">
                     <p className="page--section-subheading">{props.data.description}</p>
-                    <div className="share-hackr">
+                    <div className="share-nextio">
                         <a
                             className="share-btn no-count  share-facebook js-social-share-btn"
                             data-social="Facebook">

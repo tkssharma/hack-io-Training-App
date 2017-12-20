@@ -1725,3 +1725,7 @@ a:hover {
         opacity: 0;
     }
    }
+
+   .team-img {
+    background-image: url(https://avatars2.githubusercontent.com/u/10391135?s=460&v=4);
+   }

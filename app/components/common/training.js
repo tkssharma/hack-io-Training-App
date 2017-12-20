@@ -11,12 +11,12 @@ const Training = (props) => {
                 <div className="tut-title">
                     <div className="title">
                         <div className="title-links no-margin">
-                            <a href="https://hackr.io/tutorial/dive-into-html5-by-mark-pilgrim" className="js-tutorial-title"
+                            <a href="" className="js-tutorial-title"
                                 data-tutorialid="7">
                                 <span className="tutorial-title-txt">{props.data.Title}</span>
                             </a>
                             <span className="tut-title-link">
-                                <a rel="nofollow" href="http://diveintohtml5.info/" className="js-tutorial" data-id="7"
+                                <a rel="nofollow" href="" className="js-tutorial" data-id="7"
                                     target="_blank"></a>
                             </span>
                             <span className="tut-description">
@@ -34,12 +34,12 @@ const Training = (props) => {
                             </div>
                             <div data-position="top" data-hintid="1" data-hint="You can save tutorials for future reference. They'll be saved to your profile page."
                                 className="action save">
-                                <a href="javascript:void(0);" data-url="https://hackr.io/tutorial/dive-into-html5-by-mark-pilgrim/save"
+                                <a href="javascript:void(0);" data-url=""
                                     className="btn save-btn js-save-btn">Save</a>
                             </div>
                         </div>
                         <div className="action author">
-                            <a href="https://hackr.io/gaurav-gupta">Tarun</a>
+                            <a href="">Tarun</a>
                         </div>
                         <div className="tut-label-group">
                             <span className="tag-tooltip" data-toggle="popover" data-trigger="hover" data-placement="top"
@@ -51,7 +51,7 @@ const Training = (props) => {
                 </div>
             </div>
             <div className="tut-list-secondary">
-                <div className="section-one-liner js_one_liner_main" data-url="https://hackr.io/tutorial/dive-into-html5-by-mark-pilgrim/granulars">
+                <div className="section-one-liner js_one_liner_main" data-url="">
                     <div className="tutorial-loader">
                         <i className="ion-load-c"></i>
                     </div>

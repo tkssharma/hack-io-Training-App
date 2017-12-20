@@ -14,7 +14,7 @@ const TrainingPage = (props) => {
             <a
               href="javascript:void(0)"
               className="vote-widget js-tutorial-upvote"
-              data-url="https://hackr.io/tutorial/dive-into-html5-by-mark-pilgrim/vote"
+              data-url="https://nextio.io/tutorial/dive-into-html5-by-mark-pilgrim/vote"
               data-id="7">
               <span className="arrow">
                 <i className="ion-arrow-up-b"></i>
@@ -26,7 +26,7 @@ const TrainingPage = (props) => {
             <div className="title">
               <div className="title-links no-margin">
                 <a
-                  href="https://hackr.io/tutorial/dive-into-html5-by-mark-pilgrim"
+                  href="https://nextio.io/tutorial/dive-into-html5-by-mark-pilgrim"
                   className="js-tutorial-title"
                   data-tutorialid="7">
                   <span className="tutorial-title-txt">{props.data.Title} Training course</span>
@@ -67,7 +67,7 @@ const TrainingPage = (props) => {
 
               </div>
               <div className="action author">Submitted by
-                <a href="https://hackr.io/gaurav-gupta"> {user.name}</a>
+                <a href="https://nextio.io/gaurav-gupta"> {user.name}</a>
               </div>
 
               <div className="tut-label-group">
@@ -89,7 +89,7 @@ const TrainingPage = (props) => {
         <div className="tut-list-secondary">
           <div
             className="section-one-liner js_one_liner_main"
-            data-url="https://hackr.io/tutorial/dive-into-html5-by-mark-pilgrim/granulars">
+            data-url="https://nextio.io/tutorial/dive-into-html5-by-mark-pilgrim/granulars">
             <div className="tutorial-loader">
               <i className="ion-load-c"></i>
             </div>

@@ -19,7 +19,7 @@ const  socialShare = (props) => {
         </a>
                     </li>
                     <li>
-                        <a rel="nofollow" href="https://twitter.com/home?status=Tarun's recommendations of the best online programming courses: https://hackr.io/tarun-sharma"
+                        <a rel="nofollow" href="https://twitter.com/home?status=Tarun's recommendations of the best online programming courses: https://nextio.io/tarun-sharma"
                             target="_blank" className="btn full_width add-training ">
                             View Trainings
 

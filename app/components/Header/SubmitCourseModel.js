@@ -103,7 +103,7 @@ class submitCourse extends React.Component {
 									<Form
 										name="submitTutorialForm"
 										method="post"
-										action="https://hackr.io/tutorials/new"
+										action="https://nextio.io/tutorials/new"
 										id="submit-tutorial"
 										className="form-horizontal"
 										onSubmit={this.handleSubmit}>
